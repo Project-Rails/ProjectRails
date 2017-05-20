@@ -1,0 +1,34 @@
+From 61f84d6b4595cef53c167d5fea88e3c75d491065 Mon Sep 17 00:00:00 2001
+From: Bayside308 <nhall0312@gmail.com>
+Date: Fri, 28 Apr 2017 19:17:34 -0400
+Subject: [PATCH 48/71] Update chat and sign color permissions
+
+---
+ .../java/org/projectrainbow/mixins/MixinNetHandlerPlayServer.java     | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/mixins/MixinNetHandlerPlayServer.java b/rainbow/src/main/java/org/projectrainbow/mixins/MixinNetHandlerPlayServer.java
+index 3a08497..5a9fcbc 100644
+--- a/rainbow/src/main/java/org/projectrainbow/mixins/MixinNetHandlerPlayServer.java
++++ b/rainbow/src/main/java/org/projectrainbow/mixins/MixinNetHandlerPlayServer.java
+@@ -172,7 +172,7 @@ public class MixinNetHandlerPlayServer {
+     private String chatColor(String message) {
+         if (message.startsWith("/") && !message.startsWith("/w") && !message.startsWith("/whisper") && !message.startsWith("/msg"))
+             return message;
+-        if (((MC_Player) playerEntity).hasPermission("rainbow.chatcolor")) {
++        if (((MC_Player) playerEntity).hasPermission("rails.chatcolor")) {
+             return _DiwUtils.TranslateChatString(message, ((MC_Player) playerEntity).isOp());
+         }
+         return message;
+@@ -308,7 +308,7 @@ public class MixinNetHandlerPlayServer {
+ 
+     @Redirect(method = "processUpdateSign", at = @At(value = "INVOKE", target = "net.minecraft.util.text.TextFormatting.getTextWithoutFormattingCodes(Ljava/lang/String;)Ljava/lang/String;"))
+     private String stripColorCodes(String s) {
+-        if (((MC_Player) playerEntity).hasPermission("rainbow.signcolor")) {
++        if (((MC_Player) playerEntity).hasPermission("rails.signcolor")) {
+             return s;
+         } else {
+             return TextFormatting.getTextWithoutFormattingCodes(s);
+-- 
+2.10.1.windows.1
+

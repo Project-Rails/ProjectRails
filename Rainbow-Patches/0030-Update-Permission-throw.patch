@@ -1,0 +1,25 @@
+From 2c6f851da4793661a5f1775dafcbebcd605eaf94 Mon Sep 17 00:00:00 2001
+From: Bayside308 <nhall0312@gmail.com>
+Date: Wed, 8 Feb 2017 21:40:16 -0500
+Subject: [PATCH 30/71] Update Permission (/throw)
+
+---
+ rainbow/src/main/java/org/projectrainbow/commands/_CmdThrow.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/commands/_CmdThrow.java b/rainbow/src/main/java/org/projectrainbow/commands/_CmdThrow.java
+index b454375..b526a27 100755
+--- a/rainbow/src/main/java/org/projectrainbow/commands/_CmdThrow.java
++++ b/rainbow/src/main/java/org/projectrainbow/commands/_CmdThrow.java
+@@ -47,7 +47,7 @@ public class _CmdThrow implements MC_Command {
+ 
+     @Override
+     public boolean hasPermissionToUse(MC_Player plr) {
+-        return plr == null || plr.hasPermission("rainbow.throw");
++        return plr == null || plr.hasPermission("rails.throw");
+     }
+ 
+     @Override
+-- 
+2.10.1.windows.1
+

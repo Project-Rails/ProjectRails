@@ -1,0 +1,25 @@
+From f0adcf5fa2bed3a65c56376b720aebbbcc876e9f Mon Sep 17 00:00:00 2001
+From: Bayside308 <nhall0312@gmail.com>
+Date: Wed, 8 Feb 2017 21:31:43 -0500
+Subject: [PATCH 16/71] Update Permission (/namecolor)
+
+---
+ rainbow/src/main/java/org/projectrainbow/commands/_CmdNameColor.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/commands/_CmdNameColor.java b/rainbow/src/main/java/org/projectrainbow/commands/_CmdNameColor.java
+index 815403a..9beb7ee 100644
+--- a/rainbow/src/main/java/org/projectrainbow/commands/_CmdNameColor.java
++++ b/rainbow/src/main/java/org/projectrainbow/commands/_CmdNameColor.java
+@@ -27,7 +27,7 @@ public class _CmdNameColor extends CommandBase {
+ 
+     @Override
+     public boolean checkPermission(MinecraftServer minecraftServer, ICommandSender iCommandSender) {
+-        return (!(iCommandSender instanceof MC_Player)) || ((MC_Player) iCommandSender).hasPermission("rainbow.namecolor");
++        return (!(iCommandSender instanceof MC_Player)) || ((MC_Player) iCommandSender).hasPermission("rails.namecolor");
+     }
+ 
+     @Override
+-- 
+2.10.1.windows.1
+

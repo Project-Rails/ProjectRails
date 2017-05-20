@@ -1,0 +1,32 @@
+From 049601467326d2e5fc1306f863edc9634c9ea4ce Mon Sep 17 00:00:00 2001
+From: Bayside308 <nhall0312@gmail.com>
+Date: Fri, 10 Feb 2017 20:47:52 -0500
+Subject: [PATCH 41/71] Fix ... another ... ASCII issue
+
+---
+ .../main/java/org/projectrainbow/mixins/MixinDedicatedServer.java   | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/mixins/MixinDedicatedServer.java b/rainbow/src/main/java/org/projectrainbow/mixins/MixinDedicatedServer.java
+index afc780c..3510996 100644
+--- a/rainbow/src/main/java/org/projectrainbow/mixins/MixinDedicatedServer.java
++++ b/rainbow/src/main/java/org/projectrainbow/mixins/MixinDedicatedServer.java
+@@ -40,12 +40,12 @@ public class MixinDedicatedServer {
+         System.out.println("       ( ,  ).        `(' . _)");
+         System.out.println("     (')  _________      '-'");
+         System.out.println("     ____[_________]                                         ________");
+-        System.out.println("     \__/ | _ \  ||    ,;,;,,                               [________]");
++        System.out.println("     \\__/ | _ \\  ||    ,;,;,,                               [________]");
+         System.out.println("     _][__|('')/__||  ,;;;;;;;;,   __________   __________  _| RAILS |_");
+         System.out.println("    /             | |____      | |          | |  ___     | |      ____|");
+         System.out.println("   (| .--.    .--.| |     ___  | |   |  |   | |      ____| |____      |");
+-        System.out.println("   /|/ .. \~~/ .. \_|_.-.__.-._|_|_.-:__:-._|_|_.-.__.-._|_|_.-.__.-._|");
+-        System.out.println("+=/_|\ '' /~~\ '' /=+( o )( o )+==( o )( o )=+=( o )( o )+==( o )( o )=+=");
++        System.out.println("   /|/ .. \\~~/ .. \\_|_.-.__.-._|_|_.-:__:-._|_|_.-.__.-._|_|_.-.__.-._|");
++        System.out.println("+=/_|\\ '' /~~\\ '' /=+( o )( o )+==( o )( o )=+=( o )( o )+==( o )( o )=+=");
+         System.out.println("='=='='--'==+='--'===+'-'=='-'==+=='-'+='-'===+='-'=='-'==+=='-'=+'-'jgs+");
+         System.out.println("Booted Project Rails version " + _DiwUtils.Version + " at " + System.currentTimeMillis());
+         System.out.println(" ");
+-- 
+2.10.1.windows.1
+

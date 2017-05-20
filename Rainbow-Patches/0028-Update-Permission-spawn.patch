@@ -1,0 +1,25 @@
+From ba33b9051ce78345953230f4d9367e192d3514c8 Mon Sep 17 00:00:00 2001
+From: Bayside308 <nhall0312@gmail.com>
+Date: Wed, 8 Feb 2017 21:39:53 -0500
+Subject: [PATCH 28/71] Update Permission (/spawn)
+
+---
+ rainbow/src/main/java/org/projectrainbow/commands/_CmdSpawn.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/commands/_CmdSpawn.java b/rainbow/src/main/java/org/projectrainbow/commands/_CmdSpawn.java
+index 8aa768d..59b45f5 100644
+--- a/rainbow/src/main/java/org/projectrainbow/commands/_CmdSpawn.java
++++ b/rainbow/src/main/java/org/projectrainbow/commands/_CmdSpawn.java
+@@ -21,7 +21,7 @@ public class _CmdSpawn extends CommandBase {
+ 
+     @Override
+     public boolean checkPermission(MinecraftServer minecraftServer, ICommandSender iCommandSender) {
+-        return (!(iCommandSender instanceof MC_Player)) || ((MC_Player) iCommandSender).hasPermission("rainbow.spawn");
++        return (!(iCommandSender instanceof MC_Player)) || ((MC_Player) iCommandSender).hasPermission("rails.spawn");
+     }
+ 
+     @Override
+-- 
+2.10.1.windows.1
+

@@ -1,0 +1,25 @@
+From 925a130538897280bdd4e9c60e1e814c07e85bff Mon Sep 17 00:00:00 2001
+From: Bayside308 <nhall0312@gmail.com>
+Date: Fri, 28 Apr 2017 19:14:54 -0400
+Subject: [PATCH 46/71] Update spawn changer permission
+
+---
+ .../src/main/java/org/projectrainbow/mixins/MixinItemMonsterPlacer.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/mixins/MixinItemMonsterPlacer.java b/rainbow/src/main/java/org/projectrainbow/mixins/MixinItemMonsterPlacer.java
+index 04b4375..afff3cb 100644
+--- a/rainbow/src/main/java/org/projectrainbow/mixins/MixinItemMonsterPlacer.java
++++ b/rainbow/src/main/java/org/projectrainbow/mixins/MixinItemMonsterPlacer.java
+@@ -19,7 +19,7 @@ public class MixinItemMonsterPlacer {
+ 
+     @Inject(method = "onItemUse", at = @At(value = "INVOKE", target = "net.minecraft.world.World.getTileEntity(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;"), cancellable = true)
+     void onMobSpawnerClicked(EntityPlayer var2, World var3, BlockPos var4, EnumHand var5, EnumFacing var6, float var7, float var8, float var9, CallbackInfoReturnable<EnumActionResult> callbackInfo) {
+-        if (!((MC_Player)var2).hasPermission("rainbow.changespawner")) {
++        if (!((MC_Player)var2).hasPermission("rails.changespawner")) {
+             callbackInfo.setReturnValue(EnumActionResult.SUCCESS);
+         }
+     }
+-- 
+2.10.1.windows.1
+

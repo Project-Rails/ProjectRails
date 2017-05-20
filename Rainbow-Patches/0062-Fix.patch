@@ -1,0 +1,27 @@
+From 49c01487c6e543df6ab97958eef88876f4ba303c Mon Sep 17 00:00:00 2001
+From: Isaiah <IsaiahPatton@users.noreply.github.com>
+Date: Mon, 15 May 2017 07:06:13 -0400
+Subject: [PATCH 62/71] Fix
+
+---
+ rainbow/src/main/resources/log4j2.xml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/rainbow/src/main/resources/log4j2.xml b/rainbow/src/main/resources/log4j2.xml
+index f58a78b..8b72afe 100644
+--- a/rainbow/src/main/resources/log4j2.xml
++++ b/rainbow/src/main/resources/log4j2.xml
+@@ -25,8 +25,8 @@
+     <Loggers>
+         <!-- ProjectRails - Cleanup start log - Murged from ProjectGuardian -->
+         <Logger name="LaunchWrapper" level="warn"/>
+-        <Logger name="mixin" level="error"/>
+-        <Root level="info"> <!--ProjectRails-end-->
++        <Logger name="mixin" level="error"/> <!--ProjectRails-end-->
++        <Root level="info">
+             <filters>
+                 <MarkerFilter marker="NETWORK_PACKETS" onMatch="DENY" onMismatch="NEUTRAL" />
+             </filters>
+-- 
+2.10.1.windows.1
+

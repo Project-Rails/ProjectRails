@@ -1,0 +1,25 @@
+From 9d3f4a3de1116ce8197aa3a2beefccd41a7a0607 Mon Sep 17 00:00:00 2001
+From: Bayside308 <nhall0312@gmail.com>
+Date: Wed, 8 Feb 2017 21:38:33 -0500
+Subject: [PATCH 24/71] Update Permission (/sethome)
+
+---
+ rainbow/src/main/java/org/projectrainbow/commands/_CmdSetHome.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/commands/_CmdSetHome.java b/rainbow/src/main/java/org/projectrainbow/commands/_CmdSetHome.java
+index 273aaca..99f6d37 100644
+--- a/rainbow/src/main/java/org/projectrainbow/commands/_CmdSetHome.java
++++ b/rainbow/src/main/java/org/projectrainbow/commands/_CmdSetHome.java
+@@ -20,7 +20,7 @@ public class _CmdSetHome extends CommandBase
+ 
+     @Override
+     public boolean checkPermission(MinecraftServer minecraftServer, ICommandSender iCommandSender) {
+-        return (!(iCommandSender instanceof MC_Player)) || ((MC_Player) iCommandSender).hasPermission("rainbow.sethome");
++        return (!(iCommandSender instanceof MC_Player)) || ((MC_Player) iCommandSender).hasPermission("rails.sethome");
+     }
+ 
+     @Override
+-- 
+2.10.1.windows.1
+

@@ -1,0 +1,25 @@
+From 3703d070dcd3a280d2589fdb8760da4ad5058646 Mon Sep 17 00:00:00 2001
+From: Bayside308 <nhall0312@gmail.com>
+Date: Fri, 5 May 2017 20:46:57 -0400
+Subject: [PATCH 58/71] update ver
+
+---
+ rainbow/src/main/java/org/projectrainbow/_DiwUtils.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java b/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
+index 5c72349..24bb761 100644
+--- a/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
++++ b/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
+@@ -118,7 +118,7 @@ public class _DiwUtils {
+     public static int JanitorWarnSecs = 30;
+     public static String MC_VERSION_STRING;
+     public static String DiwModVersion = "112.1";
+-    public static String Version = "17w17a";
++    public static String Version = "17w18a";
+     public static double DiwModVersionNumeric = Double.parseDouble(DiwModVersion);
+     public static String MC_SERVER_MOD_NAME = "Project Rails";
+     public static String RainbowDataDirectory = "ProjectRails" + File.separator;
+-- 
+2.10.1.windows.1
+

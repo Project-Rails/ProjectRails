@@ -1,0 +1,25 @@
+From 524802caf795fe39ecbc77f3db15d8aa1d593287 Mon Sep 17 00:00:00 2001
+From: Bayside308 <nhall0312@gmail.com>
+Date: Wed, 8 Feb 2017 21:40:30 -0500
+Subject: [PATCH 31/71] Update Permission (/tpaccept)
+
+---
+ rainbow/src/main/java/org/projectrainbow/commands/_CmdTpAccept.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/commands/_CmdTpAccept.java b/rainbow/src/main/java/org/projectrainbow/commands/_CmdTpAccept.java
+index 6fe0234..c75e9b3 100755
+--- a/rainbow/src/main/java/org/projectrainbow/commands/_CmdTpAccept.java
++++ b/rainbow/src/main/java/org/projectrainbow/commands/_CmdTpAccept.java
+@@ -72,7 +72,7 @@ public class _CmdTpAccept implements MC_Command {
+ 
+     @Override
+     public boolean hasPermissionToUse(MC_Player plr) {
+-        return plr == null || plr.hasPermission("rainbow.tpaccept");
++        return plr == null || plr.hasPermission("rails.tpaccept");
+     }
+ 
+     @Override
+-- 
+2.10.1.windows.1
+

@@ -1,0 +1,26 @@
+From e50695908897ecaadb0f330aa0bcafef8982aa9b Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Sat, 20 May 2017 00:12:20 -0400
+Subject: [PATCH 71/71] Show ProjectRails Updater in version command.
+
+---
+ rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java b/rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java
+index 1009153..e6efbd0 100644
+--- a/rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java
++++ b/rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java
+@@ -36,6 +36,9 @@ public class _CmdVer extends CommandBase
+ 
+     @Override
+     public void execute(MinecraftServer minecraftServer, ICommandSender cs, String[] strings) throws CommandException {
++        // ProjectRails: start modify.
+         _DiwUtils.reply(cs, String.valueOf(_ColorHelper.AQUA) + "Project Rails " + _ColorHelper.GRAY + "version " + _ColorHelper.GREEN + _DiwUtils.Version + _ColorHelper.GRAY + ".");
++        org.projectrainbow.Updater.checkForUpdate();
++        // ProjectRails: end.
+     }
+ }
+-- 
+2.10.1.windows.1
+

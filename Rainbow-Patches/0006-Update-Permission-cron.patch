@@ -1,0 +1,25 @@
+From df14562cb521eb5f9ad18391825b8f436dd4d769 Mon Sep 17 00:00:00 2001
+From: Bayside308 <nhall0312@gmail.com>
+Date: Wed, 8 Feb 2017 21:27:32 -0500
+Subject: [PATCH 06/71] Update Permission (/cron)
+
+---
+ rainbow/src/main/java/org/projectrainbow/commands/_CmdCron.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/commands/_CmdCron.java b/rainbow/src/main/java/org/projectrainbow/commands/_CmdCron.java
+index 2ac8a43..9145caa 100644
+--- a/rainbow/src/main/java/org/projectrainbow/commands/_CmdCron.java
++++ b/rainbow/src/main/java/org/projectrainbow/commands/_CmdCron.java
+@@ -42,7 +42,7 @@ public class _CmdCron extends CommandBase {
+ 
+     @Override
+     public boolean checkPermission(MinecraftServer minecraftServer, ICommandSender cs) {
+-        return (!(cs instanceof MC_Player)) || ((MC_Player) cs).hasPermission("rainbow.cron");
++        return (!(cs instanceof MC_Player)) || ((MC_Player) cs).hasPermission("rails.cron");
+     }
+ 
+     @Override
+-- 
+2.10.1.windows.1
+

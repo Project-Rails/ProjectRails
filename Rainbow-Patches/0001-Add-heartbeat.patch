@@ -1,0 +1,74 @@
+From de26a78c2874eaec81235c9fa0f13142f15bf928 Mon Sep 17 00:00:00 2001
+From: Bayside308 <nhall0312@gmail.com>
+Date: Wed, 8 Feb 2017 20:00:09 -0500
+Subject: [PATCH 01/71] Add heartbeat
+
+---
+ rainbow/src/main/java/org/projectrainbow/_DiwUtils.java | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java b/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
+index 6060fe1..33b9a99 100644
+--- a/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
++++ b/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
+@@ -113,14 +113,14 @@ public class _DiwUtils {
+     public static boolean DoJanitor = true;
+     public static String CustomShutdownMessage = "We\'ll be right back!";
+     public static boolean DoHideAnnoyingDefaultServerOutput = true;
+-    public static int AutoSaveMinutes = 31;
++    public static int AutoSaveMinutes = 20;
+     public static int JanitorInterval = 900;
+     public static int JanitorWarnSecs = 30;
+     public static String MC_VERSION_STRING;
+     public static String DiwModVersion = "112.1";
+     public static double DiwModVersionNumeric = Double.parseDouble(DiwModVersion);
+-    public static String MC_SERVER_MOD_NAME = "Rainbow";
+-    public static String RainbowDataDirectory = "RainbowData" + File.separator;
++    public static String MC_SERVER_MOD_NAME = "Project Rails";
++    public static String RainbowDataDirectory = "ProjectRails" + File.separator;
+     public static long ServerStartTime = 0L;
+     public static String DefaultMOTD = "§c§lA§6§l §e§lR§a§la§b§li§d§ln§c§lb§6§lo§e§lw§a§l §b§lS§d§le§c§lr§6§lv§e§le§a§lr\n§61.11 Fully Supported!";
+     public static SimpleDateFormat shortDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+@@ -134,7 +134,7 @@ public class _DiwUtils {
+     public static double PayDayAmount = 200.0D;
+     public static boolean DoSpamKick = true;
+     public static boolean DoWelcomeNewPlayers = true;
+-    public static String RainbowPropertiesFilename = "Rainbow.properties";
++    public static String RainbowPropertiesFilename = "Rails.properties";
+     public static boolean BungeeCord = false;
+     public static boolean DoPaydays = true;
+     public static boolean DoWeather = true;
+@@ -148,9 +148,10 @@ public class _DiwUtils {
+     public static int MaxNearbyEntities = 250;
+     public static long g_standFunIdx = 0L;
+     public static List<String> g_removedCommand = new LinkedList<String>();
+-    public static boolean UpdateNameColorOnTab = false;
++    public static boolean UpdateNameColorOnTab = true;
+     public static double netherDistanceRatio = 8.0D;
+     public static long g_restartCountdown = -1L;
++    public static boolean heartbeat = true;
+ 
+     public static MinecraftServer getMinecraftServer() {
+         return minecraftServer;
+@@ -513,6 +514,10 @@ public class _DiwUtils {
+                         if (sides[0].equalsIgnoreCase("bungeecord")) {
+                             BungeeCord = isStringTrue(sides[1]);
+                         }
++                        
++                        if (sides[0].equalsIgnoreCase("heartbeat")) {
++                            BungeeCord = isStringTrue(sides[1]);
++                        }
+ 
+                         if (sides[0].equalsIgnoreCase("censor")) {
+                             DoCensor = isStringTrue(sides[1]);
+@@ -697,6 +702,7 @@ public class _DiwUtils {
+             bw.write(String.format(fmt, new Object[]{"bungeecord", Boolean.valueOf(BungeeCord)}));
+             bw.write(String.format(fmt, "update_namecolor_on_tab", UpdateNameColorOnTab));
+             bw.write(String.format(fmt, "nether_distance_ratio", netherDistanceRatio));
++            bw.write(String.format(fmt, "heartbeat", heartbeat));
+             bw.close();
+         } catch (Exception var3) {
+             ConsoleMsg("Failed to save: " + RainbowPropertiesFilename);
+-- 
+2.10.1.windows.1
+

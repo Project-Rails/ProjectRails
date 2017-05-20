@@ -1,0 +1,195 @@
+From 717eaab96412ef2296fa927dcf1630bb753ab50d Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Fri, 19 May 2017 23:49:01 -0400
+Subject: [PATCH 68/71] Added: projectrails config, updater, & support for more
+ config files.
+
+---
+ .../src/main/java/org/projectrails/RailConfig.java | 104 +++++++++++++++++++++
+ .../main/java/org/projectrails/Rail_Updater.java   |  31 ++++++
+ rainbow/src/main/java/org/projectrails/Rails.java  |  23 +++++
+ 3 files changed, 158 insertions(+)
+ create mode 100644 rainbow/src/main/java/org/projectrails/RailConfig.java
+ create mode 100644 rainbow/src/main/java/org/projectrails/Rail_Updater.java
+ create mode 100644 rainbow/src/main/java/org/projectrails/Rails.java
+
+diff --git a/rainbow/src/main/java/org/projectrails/RailConfig.java b/rainbow/src/main/java/org/projectrails/RailConfig.java
+new file mode 100644
+index 0000000..9519252
+--- /dev/null
++++ b/rainbow/src/main/java/org/projectrails/RailConfig.java
+@@ -0,0 +1,104 @@
++package org.projectrails;
++
++import java.io.BufferedReader;
++import java.io.BufferedWriter;
++import java.io.File;
++import java.io.FileOutputStream;
++import java.io.FileReader;
++import java.io.IOException;
++import java.io.InputStream;
++import java.io.OutputStreamWriter;
++import java.net.URISyntaxException;
++import java.net.URL;
++
++import net.md_5.bungee.config.Configuration;
++import net.md_5.bungee.config.ConfigurationProvider;
++import net.md_5.bungee.config.YamlConfiguration;
++
++public class RailConfig {
++    private Configuration configuration = null;
++    private File configFile;
++
++    public RailConfig(String name) {
++        this.configFile = new File(name);
++    }
++
++    public final Configuration getConfig() {
++        return configuration;
++    }
++
++    public final boolean saveDefaultConfig() {
++        if (!configFile.exists()) {
++            URL def = getClass().getClassLoader().getResource(configFile.getName());
++            if (def != null) {
++                try {
++                    BufferedWriter write = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(configFile)));
++                    BufferedReader read = new BufferedReader(new FileReader(new File(def.toURI())));
++
++                    String cl;
++                    while ((cl = read.readLine()) != null)
++                        write.write(cl + System.getProperty("line.separator"));
++
++                    write.close();
++                    read.close();
++                    return true;
++                } catch (IOException e) {
++                    e.printStackTrace();
++                } catch (URISyntaxException e) {
++                    e.printStackTrace();
++                }
++            } else {
++                System.err.println("Could not find " + configFile.getName() + " in jar.");
++                return false;
++            }
++        }
++        return false;
++    }
++
++    public final Configuration reloadConfig() {
++        Configuration defaultConfig = null;
++        InputStream defaultConfigStream = getClass().getClassLoader().getResourceAsStream(configFile.getName());
++
++        if (defaultConfigStream != null)
++            defaultConfig = ConfigurationProvider.getProvider(YamlConfiguration.class).load(defaultConfigStream);
++
++        if (!configFile.exists()) return (configuration = defaultConfig);
++
++        try {
++            return (configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(configFile,
++                    defaultConfig));
++        } catch (IOException e) {
++            e.printStackTrace();
++            return null;
++        }
++    }
++
++    public final void saveConfig() {
++        try {
++            ConfigurationProvider.getProvider(YamlConfiguration.class).save(configuration, configFile);
++        } catch (IOException e) {
++            e.printStackTrace();
++        }
++    }
++
++    public final void addDefault(String path, Object value) {
++        if (!configuration.contains(path)) {
++            configuration.set(path, value);
++            saveConfig();
++        }
++    }
++
++    public final void addDefault(String path, int value) {
++        if (!configuration.contains(path)) {
++            configuration.set(path, value);
++            saveConfig();
++        }
++    }
++
++    public final void addDefault(String path, boolean value) {
++        if (!configuration.contains(path)) {
++            configuration.set(path, value);
++            saveConfig();
++        }
++    }
++}
+\ No newline at end of file
+diff --git a/rainbow/src/main/java/org/projectrails/Rail_Updater.java b/rainbow/src/main/java/org/projectrails/Rail_Updater.java
+new file mode 100644
+index 0000000..954eef5
+--- /dev/null
++++ b/rainbow/src/main/java/org/projectrails/Rail_Updater.java
+@@ -0,0 +1,31 @@
++package org.projectrails;
++
++import java.io.BufferedReader;
++import java.io.IOException;
++import java.io.InputStreamReader;
++import java.net.MalformedURLException;
++import java.net.URL;
++import java.net.URLConnection;
++
++/**
++ * Updater for Project Rails
++ */
++public class Rail_Updater {
++    /**
++     * Is there a faster way? This takes around 5 - 7 sec.
++     */
++    public static int check(String currentVersion) throws MalformedURLException, IOException {
++        System.out.println("Hi");
++        URLConnection urlc = new URL("https://api.github.com/repos/Project-Rails/Releases/releases").openConnection();
++        BufferedReader in = new BufferedReader(new InputStreamReader(urlc.getInputStream(), "UTF-8"));
++        int i = 0;
++        for (String s : in.readLine().trim().split("tag_name")) {
++            if (s.substring(3, s.indexOf(",") - 1).equalsIgnoreCase(currentVersion)) {
++                in.close();
++                return (i - 1);
++            } else i++;
++        }
++        in.close();
++        return -1;
++    }
++}
+diff --git a/rainbow/src/main/java/org/projectrails/Rails.java b/rainbow/src/main/java/org/projectrails/Rails.java
+new file mode 100644
+index 0000000..6a28961
+--- /dev/null
++++ b/rainbow/src/main/java/org/projectrails/Rails.java
+@@ -0,0 +1,23 @@
++package org.projectrails;
++
++import org.projectrainbow._DiwUtils;
++
++import net.md_5.bungee.config.Configuration;
++
++/**
++ * Usefull utils for Project Rails.
++ */
++public class Rails {
++    private static RailConfig config = new RailConfig("projectrails.yml");
++
++    /**
++     * Runs ProjectRails stuff. Called in {@link _DiwUtils#Startup()}
++     */
++    public static void run() {
++        config.saveDefaultConfig();
++    }
++
++    public static Configuration getConfig() {
++        return config.getConfig();
++    }
++}
+-- 
+2.10.1.windows.1
+

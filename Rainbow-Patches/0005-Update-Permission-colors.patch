@@ -1,0 +1,25 @@
+From afa22160a78baff3580f70a2d39a44b5e675d652 Mon Sep 17 00:00:00 2001
+From: Bayside308 <nhall0312@gmail.com>
+Date: Wed, 8 Feb 2017 21:27:14 -0500
+Subject: [PATCH 05/71] Update Permission (/colors)
+
+---
+ rainbow/src/main/java/org/projectrainbow/commands/_CmdColors.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/commands/_CmdColors.java b/rainbow/src/main/java/org/projectrainbow/commands/_CmdColors.java
+index 26098f4..d9cc68f 100755
+--- a/rainbow/src/main/java/org/projectrainbow/commands/_CmdColors.java
++++ b/rainbow/src/main/java/org/projectrainbow/commands/_CmdColors.java
+@@ -38,7 +38,7 @@ public class _CmdColors implements MC_Command {
+ 
+     @Override
+     public boolean hasPermissionToUse(MC_Player plr) {
+-        return plr == null || plr.hasPermission("rainbow.colors");
++        return plr == null || plr.hasPermission("rails.colors");
+     }
+ 
+     @Override
+-- 
+2.10.1.windows.1
+

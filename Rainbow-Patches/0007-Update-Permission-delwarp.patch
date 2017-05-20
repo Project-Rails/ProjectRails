@@ -1,0 +1,25 @@
+From 90db1dd210bd8458967ed786aabc6ed9735fe9dd Mon Sep 17 00:00:00 2001
+From: Bayside308 <nhall0312@gmail.com>
+Date: Wed, 8 Feb 2017 21:28:04 -0500
+Subject: [PATCH 07/71] Update Permission (/delwarp)
+
+---
+ rainbow/src/main/java/org/projectrainbow/commands/_CmdDelWarp.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/commands/_CmdDelWarp.java b/rainbow/src/main/java/org/projectrainbow/commands/_CmdDelWarp.java
+index 4ba6c52..e1f5006 100755
+--- a/rainbow/src/main/java/org/projectrainbow/commands/_CmdDelWarp.java
++++ b/rainbow/src/main/java/org/projectrainbow/commands/_CmdDelWarp.java
+@@ -12,7 +12,7 @@ import java.util.List;
+ 
+ public class _CmdDelWarp implements MC_Command {
+ 
+-    public static String permKey = "rainbow.delwarp";
++    public static String permKey = "rails.delwarp";
+ 
+     public _CmdDelWarp() {}
+ 
+-- 
+2.10.1.windows.1
+

@@ -1,0 +1,25 @@
+From 3892e6efeecea54659358f36260b84ed2f51dabe Mon Sep 17 00:00:00 2001
+From: Bayside308 <nhall0312@gmail.com>
+Date: Wed, 8 Feb 2017 21:41:18 -0500
+Subject: [PATCH 34/71] Update Permission (/worth)
+
+---
+ rainbow/src/main/java/org/projectrainbow/commands/_CmdWorth.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/commands/_CmdWorth.java b/rainbow/src/main/java/org/projectrainbow/commands/_CmdWorth.java
+index bf38a8b..50fa177 100755
+--- a/rainbow/src/main/java/org/projectrainbow/commands/_CmdWorth.java
++++ b/rainbow/src/main/java/org/projectrainbow/commands/_CmdWorth.java
+@@ -65,7 +65,7 @@ public class _CmdWorth implements MC_Command {
+ 
+     @Override
+     public boolean hasPermissionToUse(MC_Player plr) {
+-        return plr == null || plr.hasPermission("rainbow.worth");
++        return plr == null || plr.hasPermission("rails.worth");
+     }
+ 
+     @Override
+-- 
+2.10.1.windows.1
+

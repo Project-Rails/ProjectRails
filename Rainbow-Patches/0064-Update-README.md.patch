@@ -1,0 +1,79 @@
+From 3e2aebbca4a397337aa6eb2f3a45c276983ffbae Mon Sep 17 00:00:00 2001
+From: Bayside308 <nhall0312@gmail.com>
+Date: Mon, 15 May 2017 16:13:48 -0400
+Subject: [PATCH 64/71] Update README.md
+
+I updated the logo, description, and build information.
+---
+ README.md | 20 ++++++++++++++++++++
+ Readme.md | 31 -------------------------------
+ 2 files changed, 20 insertions(+), 31 deletions(-)
+ create mode 100644 README.md
+ delete mode 100644 Readme.md
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..ad3679a
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,20 @@
++![Rails](http://logos-download.com/wp-content/uploads/2016/09/Ruby_on_Rails_logo.png)
++=======
++
++Rails is a Minecraft server mod, updated from [Rainbow](https://project-rainbow.org).
++
++Builds: <https://projectrails.org/releases>
++Website: <https://projectrails.org>
++Plugins: <https://projectrails.org/resources>
++
++
++Build
++=====
++
++Maven
++-----
++
++This project uses maven. The project can be build by running the following command:
++```
++mvn clean install
++```
+diff --git a/Readme.md b/Readme.md
+deleted file mode 100644
+index 83d5ecf..0000000
+--- a/Readme.md
++++ /dev/null
+@@ -1,31 +0,0 @@
+-![Rainbow](http://www.project-rainbow.org/site/MGalleryItem.php?id=18)
+-=======
+-
+-Rainbow is a Minecraft server mod.
+-
+-Website: <http://www.project-rainbow.org>
+-Builds: <http://ci.codecrafter47.dyndns.eu/job/Rainbow/>
+-
+-
+-Build
+-=====
+-
+-Maven
+------
+-
+-This project uses maven. The project can be build by running the following command:
+-```
+-mvn clean install
+-```
+-After the command has run the final rainbow server jar can be found in `rainbow/target/Rainbow-<VERSION>.jar`.
+-
+-IntelliJ
+---------
+-
+-I recommend using IntelliJ. It has good maven support and its integrated decompiler
+- is very helpful for projects of this kind.
+-
+-Before trying to import the project into the IDE I recommend building it from the
+- command line the first time.
+-
+-TESTING THE WEBHOOK
+-- 
+2.10.1.windows.1
+

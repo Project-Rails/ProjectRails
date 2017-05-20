@@ -1,0 +1,24 @@
+From e3d248cd7a948ab1b350f6f58b380ed72fcf0566 Mon Sep 17 00:00:00 2001
+From: Bayside308 <nhall0312@gmail.com>
+Date: Fri, 28 Apr 2017 20:01:12 -0400
+Subject: [PATCH 50/71] Update version
+
+---
+ rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java b/rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java
+index 769b77a..1009153 100644
+--- a/rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java
++++ b/rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java
+@@ -36,6 +36,6 @@ public class _CmdVer extends CommandBase
+ 
+     @Override
+     public void execute(MinecraftServer minecraftServer, ICommandSender cs, String[] strings) throws CommandException {
+-        _DiwUtils.reply(cs, String.valueOf(_ColorHelper.RED) + "Project Rails " + _ColorHelper.GRAY + "version " + _ColorHelper.RED + _DiwUtils.Version + _ColorHelper.GRAY + ".");
++        _DiwUtils.reply(cs, String.valueOf(_ColorHelper.AQUA) + "Project Rails " + _ColorHelper.GRAY + "version " + _ColorHelper.GREEN + _DiwUtils.Version + _ColorHelper.GRAY + ".");
+     }
+ }
+-- 
+2.10.1.windows.1
+

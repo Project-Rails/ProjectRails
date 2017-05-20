@@ -1,0 +1,25 @@
+From 2624533ac3727966fae2f7a99940ebf94eebcd76 Mon Sep 17 00:00:00 2001
+From: Bayside308 <nhall0312@gmail.com>
+Date: Wed, 8 Feb 2017 21:38:07 -0500
+Subject: [PATCH 23/71] Update Permission (/sell)
+
+---
+ rainbow/src/main/java/org/projectrainbow/commands/_CmdSell.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/commands/_CmdSell.java b/rainbow/src/main/java/org/projectrainbow/commands/_CmdSell.java
+index 93a7fe1..ed2973c 100755
+--- a/rainbow/src/main/java/org/projectrainbow/commands/_CmdSell.java
++++ b/rainbow/src/main/java/org/projectrainbow/commands/_CmdSell.java
+@@ -75,7 +75,7 @@ public class _CmdSell implements MC_Command {
+ 
+     @Override
+     public boolean hasPermissionToUse(MC_Player plr) {
+-        return plr == null || plr.hasPermission("rainbow.sell");
++        return plr == null || plr.hasPermission("rails.sell");
+     }
+ 
+     @Override
+-- 
+2.10.1.windows.1
+
