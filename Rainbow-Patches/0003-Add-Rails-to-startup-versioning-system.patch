@@ -1,7 +1,7 @@
 From c435b6342c2c67588656ff168d7cd2780fc936d7 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 20 May 2017 15:03:08 -0400
-Subject: [PATCH 3/9] Add Rails to startup & versioning system
+Subject: [PATCH 03/10] Add Rails to startup & versioning system
 
 ---
  rainbow/src/main/java/org/projectrainbow/_DiwUtils.java | 10 +++++++---
