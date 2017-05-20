@@ -11,9 +11,9 @@
     <packaging>pom</packaging>
     <version>1.11.2-SNAPSHOT</version>
     <modules>
-        <module>Rainbow/install-dependencies</module>   
-        <module>Rainbow/PluginReference</module>
-        <module>Rainbow/rainbow</module>
+        <module>Rails/install-dependencies</module>   
+        <module>Rails/PluginReference</module>
+        <module>Rails/rainbow</module>
     </modules>
 
     <properties>
