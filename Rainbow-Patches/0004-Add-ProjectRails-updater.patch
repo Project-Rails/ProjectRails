@@ -1,0 +1,43 @@
+From f8db6362459483bb742e3a351e13e44092e99804 Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Sat, 20 May 2017 15:03:39 -0400
+Subject: [PATCH 4/9] Add ProjectRails updater.
+
+---
+ rainbow/src/main/java/org/projectrainbow/Updater.java | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/Updater.java b/rainbow/src/main/java/org/projectrainbow/Updater.java
+index ba9f7db..a585f5d 100644
+--- a/rainbow/src/main/java/org/projectrainbow/Updater.java
++++ b/rainbow/src/main/java/org/projectrainbow/Updater.java
+@@ -19,7 +19,26 @@ import org.projectrainbow.launch.Bootstrap;
+  * @author Isaiah Patton
+  */
+ public class Updater {
++    // ProjectRails: start
+     public static String checkForUpdate() {
++        int behind = -2;
++        try {
++            behind = org.projectrails.Rail_Updater.check(_DiwUtils.version);
++        } catch (MalformedURLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        } catch (IOException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++        if (behind == 0) return "You are running the latest version.";
++        else if (behind == -1) return "Unknown version, custom build?";
++        else if (behind == -2) return "Error finding version infomation!";
++        return "You are running " + behind + " versions behind.";
++    }
++    // ProjectRails: end
++    
++    public static String rainbow_checkForUpdate() { // ProjectRails: rename to rainbow_checkForUpdate
+         String latest = getLatestVersion();
+         if (!latest.startsWith("ERROR")) {
+             try {
+-- 
+2.10.1.windows.1
+
