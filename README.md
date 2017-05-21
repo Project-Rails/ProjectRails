@@ -1,4 +1,4 @@
-![Rails](http://logos-download.com/wp-content/uploads/2016/09/Ruby_on_Rails_logo.png)
+![Rails](https://cdn.discordapp.com/attachments/280480189945872385/315651907156705280/logo.png)
 =======
 
 Rails is a Minecraft server mod, updated from [Rainbow](https://project-rainbow.org).
@@ -13,11 +13,15 @@ Plugins: <https://projectrails.org/resources>
 Build
 =====
 
-Maven
------
-
-This project uses maven. The project can be build by running the following command:
+This project uses maven. The project can be build by running the following commands:
 ```
-mvn clean install
+./scriptrails patch
+```
+```
+mvn package
 ```
 
+Or on windows just run
+```
+windows-build.bat
+```
