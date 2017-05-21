@@ -1,0 +1,25 @@
+From 2a7bdfc8c6d8fcb817ca7ec46b5ee7a6ae71ec56 Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Sun, 21 May 2017 00:58:55 -0400
+Subject: [PATCH 13/13] Fix Git-Commit-Id version
+
+---
+ rainbow/pom.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rainbow/pom.xml b/rainbow/pom.xml
+index 1c7a8c5..a9cc389 100644
+--- a/rainbow/pom.xml
++++ b/rainbow/pom.xml
+@@ -198,7 +198,7 @@
+             <plugin>
+                 <groupId>pl.project13.maven</groupId>
+                 <artifactId>git-commit-id-plugin</artifactId>
+-                <version>${git-commit-id-plugin.version}</version>
++                <version>2.1.15</version>
+                 <executions>
+                     <execution>
+                         <id>get-the-git-infos</id>
+-- 
+2.10.1.windows.1
+

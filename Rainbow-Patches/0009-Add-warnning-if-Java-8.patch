@@ -1,7 +1,7 @@
 From e28f3e33f74e388ceccf0cf09b887ca334a8149d Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 20 May 2017 15:51:18 -0400
-Subject: [PATCH 09/12] Add warnning if Java < 8
+Subject: [PATCH 09/13] Add warnning if Java < 8
 
 ---
  .../src/main/java/org/projectrainbow/launch/Bootstrap.java  | 13 +++++++++++++

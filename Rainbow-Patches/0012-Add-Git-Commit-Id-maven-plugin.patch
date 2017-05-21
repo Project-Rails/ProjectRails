@@ -1,7 +1,7 @@
 From de34a8141b27c3f7aeb4fc44334f01744465fa15 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sun, 21 May 2017 00:49:15 -0400
-Subject: [PATCH 12/12] Add Git-Commit-Id maven plugin
+Subject: [PATCH 12/13] Add Git-Commit-Id maven plugin
 
 ---
  rainbow/pom.xml | 20 ++++++++++++++++++++

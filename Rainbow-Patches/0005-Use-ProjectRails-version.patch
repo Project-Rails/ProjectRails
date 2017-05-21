@@ -1,7 +1,7 @@
 From 2da6fca031f86c72e9f96dbd832838314167d621 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 20 May 2017 15:06:12 -0400
-Subject: [PATCH 05/12] Use ProjectRails version
+Subject: [PATCH 05/13] Use ProjectRails version
 
 ---
  rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java | 3 ++-

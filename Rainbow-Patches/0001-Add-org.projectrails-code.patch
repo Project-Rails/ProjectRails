@@ -1,7 +1,7 @@
 From 957bcb169feeea7efe856887df4cd6e51d40b2cc Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 20 May 2017 14:45:04 -0400
-Subject: [PATCH 01/12] Add org.projectrails code
+Subject: [PATCH 01/13] Add org.projectrails code
 
 ---
  .../src/main/java/org/projectrails/RailConfig.java | 104 +++++++++++++++++++++
