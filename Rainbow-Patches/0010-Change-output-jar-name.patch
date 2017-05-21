@@ -1,7 +1,7 @@
 From e82203686e7a42bf589ac9d3f945773e8223d67b Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 20 May 2017 16:17:10 -0400
-Subject: [PATCH 10/10] Change output jar name
+Subject: [PATCH 10/11] Change output jar name
 
 ---
  rainbow/pom.xml | 6 +++---
