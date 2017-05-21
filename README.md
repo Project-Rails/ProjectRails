@@ -13,11 +13,15 @@ Plugins: <https://projectrails.org/resources>
 Build
 =====
 
-Maven
------
-
-This project uses maven. The project can be build by running the following command:
+This project uses maven. The project can be build by running the following commands:
 ```
-mvn clean install
+./scriptrails patch
+```
+```
+mvn package
 ```
 
+Or on windows just run
+```
+windows-build.bat
+```
