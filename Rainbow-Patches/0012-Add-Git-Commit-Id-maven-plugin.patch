@@ -1,0 +1,50 @@
+From de34a8141b27c3f7aeb4fc44334f01744465fa15 Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Sun, 21 May 2017 00:49:15 -0400
+Subject: [PATCH 12/12] Add Git-Commit-Id maven plugin
+
+---
+ rainbow/pom.xml | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
+
+diff --git a/rainbow/pom.xml b/rainbow/pom.xml
+index 82b8c6a..1c7a8c5 100644
+--- a/rainbow/pom.xml
++++ b/rainbow/pom.xml
+@@ -194,6 +194,25 @@
+                     </signature>
+                 </configuration>
+             </plugin>
++            <!--ProjectRails-start-->
++            <plugin>
++                <groupId>pl.project13.maven</groupId>
++                <artifactId>git-commit-id-plugin</artifactId>
++                <version>${git-commit-id-plugin.version}</version>
++                <executions>
++                    <execution>
++                        <id>get-the-git-infos</id>
++                        <goals>
++                            <goal>revision</goal>
++                        </goals>
++                        <phase>validate</phase>
++                    </execution>
++                </executions>
++                <configuration>
++                    <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
++                </configuration>
++            </plugin>
++            <!--ProjectRails-end-->
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-jar-plugin</artifactId>
+@@ -229,6 +248,7 @@
+                                             org.spongepowered.asm.launch.MixinTweaker
+                                         </TweakClass>
+                                         <MixinConfigs>mixins.json</MixinConfigs>
++                                        <GitCommitHash>${git.commit.id.describe-short}</GitCommitHash><!--ProjectRails-->
+                                     </manifestEntries>
+                                 </transformer>
+                             </transformers>
+-- 
+2.10.1.windows.1
+

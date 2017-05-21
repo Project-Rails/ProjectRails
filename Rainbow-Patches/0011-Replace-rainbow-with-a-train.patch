@@ -1,7 +1,7 @@
 From ed34c64077b4f3be05d0bed85158b6d70187c3cc Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 20 May 2017 21:03:44 -0400
-Subject: [PATCH 11/11] Replace rainbow with a train
+Subject: [PATCH 11/12] Replace rainbow with a train
 
 ---
  .../mixins/MixinDedicatedServer.java               | 28 ++++++++++++----------

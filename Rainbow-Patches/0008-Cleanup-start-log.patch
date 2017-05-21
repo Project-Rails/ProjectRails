@@ -1,7 +1,7 @@
 From 627a8489be8c22e017dbd88067c3820993bf0ddb Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 20 May 2017 15:47:18 -0400
-Subject: [PATCH 08/11] Cleanup start log
+Subject: [PATCH 08/12] Cleanup start log
 
 ---
  rainbow/src/main/resources/log4j2.xml | 3 +++
