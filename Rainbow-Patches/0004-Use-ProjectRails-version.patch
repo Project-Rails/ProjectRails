@@ -1,0 +1,26 @@
+From e95ef9a0e2016fda0e344c6215a66e2aad883639 Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Sat, 20 May 2017 15:06:12 -0400
+Subject: [PATCH 04/11] Use ProjectRails version
+
+---
+ rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java b/rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java
+index ced6ce3..851a14a 100644
+--- a/rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java
++++ b/rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java
+@@ -37,7 +37,8 @@ public class _CmdVer extends CommandBase {
+ 
+     @Override
+     public void execute(MinecraftServer minecraftServer, ICommandSender cs, String[] strings) throws CommandException {
+-        _DiwUtils.reply(cs, String.valueOf(_ColorHelper.AQUA) + "Rainbow " + _ColorHelper.LIGHT_PURPLE + _DiwUtils.MC_VERSION_STRING + " b" + Bootstrap.buildNumber);
++        _DiwUtils.reply(cs, String.valueOf(_ColorHelper.AQUA) + "Rails " + _ColorHelper.LIGHT_PURPLE + _DiwUtils.MC_VERSION_STRING + " b" + _DiwUtils.version
++                + " upstream b" + _DiwUtils.upstream_version); // ProjectRails: show Rails instead of Rainbow
+         _DiwUtils.reply(cs, "Checking for update, please wait...");
+         _DiwUtils.reply(cs, Updater.checkForUpdate());
+     }
+-- 
+2.10.1.windows.1
+

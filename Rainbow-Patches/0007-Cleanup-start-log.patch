@@ -1,0 +1,26 @@
+From 1d8fd5a83c4fabdf3557c17191464722a94ad463 Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Sat, 20 May 2017 15:47:18 -0400
+Subject: [PATCH 07/11] Cleanup start log
+
+---
+ rainbow/src/main/resources/log4j2.xml | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/rainbow/src/main/resources/log4j2.xml b/rainbow/src/main/resources/log4j2.xml
+index 9b263e5..968bb56 100644
+--- a/rainbow/src/main/resources/log4j2.xml
++++ b/rainbow/src/main/resources/log4j2.xml
+@@ -23,6 +23,9 @@
+         </RollingRandomAccessFile>
+     </Appenders>
+     <Loggers>
++        <!-- ProjectRails - Cleanup start log -->
++        <Logger name="LaunchWrapper" level="warn"/>
++        <Logger name="mixin" level="error"/> <!--ProjectRails-end-->
+         <Root level="info">
+             <filters>
+                 <MarkerFilter marker="NETWORK_PACKETS" onMatch="DENY" onMismatch="NEUTRAL" />
+-- 
+2.10.1.windows.1
+

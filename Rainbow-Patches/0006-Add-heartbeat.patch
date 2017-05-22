@@ -1,0 +1,45 @@
+From df12f4b13c55b2fe9551e0232522759fd6e265d2 Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Sat, 20 May 2017 15:42:27 -0400
+Subject: [PATCH 06/11] Add heartbeat
+
+---
+ rainbow/src/main/java/org/projectrainbow/_DiwUtils.java | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java b/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
+index f9fb05f..06f5db3 100644
+--- a/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
++++ b/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
+@@ -155,6 +155,7 @@ public class _DiwUtils {
+     public static boolean UpdateNameColorOnTab = false;
+     public static double netherDistanceRatio = 8.0D;
+     public static long g_restartCountdown = -1L;
++    public static boolean heartbeat = true; // ProjectRails
+ 
+     public static MinecraftServer getMinecraftServer() {
+         return minecraftServer;
+@@ -519,6 +520,12 @@ public class _DiwUtils {
+                             BungeeCord = isStringTrue(sides[1]);
+                         }
+ 
++                        // ProjectRails: start
++                        if (sides[0].equalsIgnoreCase("heartbeat")) {
++                            heartbeat = isStringTrue(sides[1]);
++                        }
++                        // ProjectRails: end
++
+                         if (sides[0].equalsIgnoreCase("censor")) {
+                             DoCensor = isStringTrue(sides[1]);
+                         }
+@@ -702,6 +709,7 @@ public class _DiwUtils {
+             bw.write(String.format(fmt, new Object[]{"bungeecord", Boolean.valueOf(BungeeCord)}));
+             bw.write(String.format(fmt, "update_namecolor_on_tab", UpdateNameColorOnTab));
+             bw.write(String.format(fmt, "nether_distance_ratio", netherDistanceRatio));
++            bw.write(String.format(fmt, "heartbeat", heartbeat)); // ProjectRails
+             bw.close();
+         } catch (Exception var3) {
+             ConsoleMsg("Failed to save: " + RainbowPropertiesFilename);
+-- 
+2.10.1.windows.1
+
