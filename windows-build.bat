@@ -19,4 +19,10 @@ java -jar windows-patch-applyer.jar
 
 cd ..
 
+java -jar movefiles.jar
+
 mvn package
+
+java -jar movefiles.jar undo
+
+pause

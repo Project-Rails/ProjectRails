@@ -1,0 +1,9 @@
+# Project-Rails Configuration.
+
+# Update System Settings
+updater:
+  # Lower Updater check rate.
+  # Makes the updater return your 
+  # running the lastest version when
+  # your just running 1 version behind.
+  lower: false

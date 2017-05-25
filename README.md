@@ -18,7 +18,13 @@ This project uses maven. The project can be build by running the following comma
 ./scriptrails patch
 ```
 ```
+java -jar movefiles.jar
+```
+```
 mvn package
+```
+```
+java -jar movefiles.jar undo
 ```
 
 Or on windows just run
