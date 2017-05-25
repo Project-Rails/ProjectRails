@@ -25,20 +25,21 @@ public class Rail_Updater {
         Attributes a = getManifest(Rail_Updater.class).getAttributes("GitCommitHash");
         String hash = a.getValue("GitCommitHash");
         try {
-           HttpURLConnection connection = (HttpURLConnection) new URL("https://api.github.com/repos/" + repo + "/compare/" + BRANCH + "..." + hash).openConnection();
-           connection.connect();
-           if (connection.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND) return -2; // Unknown commit
-           BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
-           JsonObject obj = (JsonObject) new JsonParser().parse(reader);
-           String status = obj.get("status").getAsString();
-           switch (status) {
-               case "identical":
-                   return 0;
-               case "behind":
-                   return obj.get("behind_by").getAsInt();
-               default:
-                   return -1;
+            HttpURLConnection connection = (HttpURLConnection) new URL("https://api.github.com/repos/" + repo + "/compare/" + BRANCH + "..." + hash).openConnection();
+            connection.connect();
+            if (connection.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND) return -2; // Unknown commit
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
+            JsonObject obj = (JsonObject) new JsonParser().parse(reader);
+            String status = obj.get("status").getAsString();
+
+            if (status.equalsIgnoreCase("identical")) {
+			    return 0;
+		    }
+            if (status.equalsIgnoreCase("behind")) {
+                return obj.get("behind_by").getAsInt();
             }
+
+            return -1;
         } catch (IOException e) {
             e.printStackTrace();
             return -3;
