@@ -13,7 +13,6 @@
     <modules>
         <module>Rails/install-dependencies</module>   
         <module>Rails/PluginReference</module>
-        <module>Rails/rainbow</module>
         <module>MakeJar</module>
     </modules>
 
