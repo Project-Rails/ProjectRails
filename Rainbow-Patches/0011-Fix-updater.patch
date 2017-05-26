@@ -1,7 +1,7 @@
-From 23510e196d55d17d3c44d83a1f16c1346ff27108 Mon Sep 17 00:00:00 2001
+From adfe3a1a97fba39a2e1214bc81330dd014c9bb5c Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Mon, 22 May 2017 07:43:39 -0400
-Subject: [PATCH 11/11] Fix updater
+Subject: [PATCH 11/12] Fix updater
 
 ---
  rainbow/src/main/java/org/projectrainbow/Updater.java | 11 +----------
@@ -30,5 +30,5 @@ index a585f5d..230ed77 100644
          else if (behind == -1) return "Unknown version, custom build?";
          else if (behind == -2) return "Error finding version infomation!";
 -- 
-2.10.1.windows.1
+2.13.0.windows.1
 

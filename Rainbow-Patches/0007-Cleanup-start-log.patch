@@ -1,7 +1,7 @@
-From 1d8fd5a83c4fabdf3557c17191464722a94ad463 Mon Sep 17 00:00:00 2001
+From 67b681322f2f56af4e16df340b0e2355e9e819e0 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 20 May 2017 15:47:18 -0400
-Subject: [PATCH 07/11] Cleanup start log
+Subject: [PATCH 07/12] Cleanup start log
 
 ---
  rainbow/src/main/resources/log4j2.xml | 3 +++
@@ -22,5 +22,5 @@ index 9b263e5..968bb56 100644
              <filters>
                  <MarkerFilter marker="NETWORK_PACKETS" onMatch="DENY" onMismatch="NEUTRAL" />
 -- 
-2.10.1.windows.1
+2.13.0.windows.1
 

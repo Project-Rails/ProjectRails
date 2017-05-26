@@ -1,7 +1,7 @@
-From 223ae177255f0c797f8834d2ce49514f74a3d92d Mon Sep 17 00:00:00 2001
+From 739b5dc18130daeb8349e48765e9d3d642849841 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 20 May 2017 15:51:18 -0400
-Subject: [PATCH 08/11] Add warnning if Java < 8
+Subject: [PATCH 08/12] Add warnning if Java < 8
 
 ---
  .../src/main/java/org/projectrainbow/launch/Bootstrap.java  | 13 +++++++++++++
@@ -32,5 +32,5 @@ index 0995bf8..287ca50 100644
  
          List<String> tweakClasses = new ArrayList<String>() {{
 -- 
-2.10.1.windows.1
+2.13.0.windows.1
 

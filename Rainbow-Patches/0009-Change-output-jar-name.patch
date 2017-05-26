@@ -1,7 +1,7 @@
-From 460a99a967ce1be093b5921ce467498ec123a61d Mon Sep 17 00:00:00 2001
+From f05ec8ba033536bc6496efc7b1cd27d0dc6057bc Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 20 May 2017 16:17:10 -0400
-Subject: [PATCH 09/11] Change output jar name
+Subject: [PATCH 09/12] Change output jar name
 
 ---
  rainbow/pom.xml | 6 +++---
@@ -39,5 +39,5 @@ index 0a2ac67..82b8c6a 100644
                              <appendAssemblyId>false</appendAssemblyId>
                              <descriptors>
 -- 
-2.10.1.windows.1
+2.13.0.windows.1
 

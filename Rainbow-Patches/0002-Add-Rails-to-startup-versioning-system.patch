@@ -1,7 +1,7 @@
-From fdfe6ec7239ebd728326c46db1a9e5017740c810 Mon Sep 17 00:00:00 2001
+From 7ba39d70992da9bc019c4b891565dc32827e3f93 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 20 May 2017 15:03:08 -0400
-Subject: [PATCH 02/11] Add Rails to startup & versioning system
+Subject: [PATCH 02/12] Add Rails to startup & versioning system
 
 ---
  rainbow/src/main/java/org/projectrainbow/_DiwUtils.java | 10 +++++++---
@@ -36,5 +36,5 @@ index 8f70ae8..f9fb05f 100644
          pluginManager.enable();
  
 -- 
-2.10.1.windows.1
+2.13.0.windows.1
 

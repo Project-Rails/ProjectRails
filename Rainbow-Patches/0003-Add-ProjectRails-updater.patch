@@ -1,7 +1,7 @@
-From 02eacc01e7d688505fa53aefb555809017ac70e3 Mon Sep 17 00:00:00 2001
+From f5b8f585a2a81cd2de1e98d6b743545a0400abc4 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 20 May 2017 15:03:39 -0400
-Subject: [PATCH 03/11] Add ProjectRails updater.
+Subject: [PATCH 03/12] Add ProjectRails updater.
 
 ---
  rainbow/src/main/java/org/projectrainbow/Updater.java | 19 +++++++++++++++++++
@@ -39,5 +39,5 @@ index ba9f7db..a585f5d 100644
          if (!latest.startsWith("ERROR")) {
              try {
 -- 
-2.10.1.windows.1
+2.13.0.windows.1
 

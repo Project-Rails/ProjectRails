@@ -1,7 +1,7 @@
-From 22861f65dc71e1b4e168e8273024b8702e1da5b1 Mon Sep 17 00:00:00 2001
+From 821e5207f1f6eea1874dfc6654396d1c290f9039 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 20 May 2017 14:47:11 -0400
-Subject: [PATCH 01/11] Add projectrails config
+Subject: [PATCH 01/12] Add projectrails config
 
 ---
  rainbow/src/main/resources/projectrails.yml | 9 +++++++++
@@ -25,5 +25,5 @@ index 0000000..b1382ee
 +  lower: false
 \ No newline at end of file
 -- 
-2.10.1.windows.1
+2.13.0.windows.1
 

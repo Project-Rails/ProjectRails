@@ -1,7 +1,7 @@
-From e95ef9a0e2016fda0e344c6215a66e2aad883639 Mon Sep 17 00:00:00 2001
+From cce40d716faea9bb8e33d3f937ce14cfe58f16ff Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 20 May 2017 15:06:12 -0400
-Subject: [PATCH 04/11] Use ProjectRails version
+Subject: [PATCH 04/12] Use ProjectRails version
 
 ---
  rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java | 3 ++-
@@ -22,5 +22,5 @@ index ced6ce3..851a14a 100644
          _DiwUtils.reply(cs, Updater.checkForUpdate());
      }
 -- 
-2.10.1.windows.1
+2.13.0.windows.1
 
