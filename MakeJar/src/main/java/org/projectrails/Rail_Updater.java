@@ -21,6 +21,9 @@ public class Rail_Updater {
     public static int check() {
         Attributes a = getManifest(Rail_Updater.class).getMainAttributes();
         String hash = a.getValue("GitCommitHash");
+        if (hash.endsWith("-dirty")) {
+            hash = hash.replace("-dirty", "");
+        }
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL("https://api.github.com/repos/" + repo + "/compare/" + BRANCH + "..." + hash).openConnection();
             connection.connect();
