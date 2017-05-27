@@ -133,14 +133,14 @@
         <finalName>Rails-${minecraft.version}</finalName>
         <resources>
             <resource>
-                <directory>${project.basedir}/Rails/rainbow/src/main/resources</directory>
+                <directory>src/main/resources</directory>
                 <filtering>true</filtering>
                 <includes>
                     <include>*.properties</include>
                 </includes>
             </resource>
             <resource>
-                <directory>${project.basedir}/Rails/rainbow/src/main/resources</directory>
+                <directory>src/main/resources</directory>
                 <filtering>false</filtering>
                 <excludes>
                     <exclude>*.properties</exclude>
