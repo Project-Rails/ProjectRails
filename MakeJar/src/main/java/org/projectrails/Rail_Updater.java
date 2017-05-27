@@ -19,7 +19,7 @@ public class Rail_Updater {
     private static final String repo = "Project-Rails/ProjectRails";
     private static final String BRANCH = "master";
     public static int check() {
-        Attributes a = getManifest(Rail_Updater.class).getAttributes("GitCommitHash");
+        Attributes a = getManifest(Rail_Updater.class).getMainAttributes();
         String hash = a.getValue("GitCommitHash");
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL("https://api.github.com/repos/" + repo + "/compare/" + BRANCH + "..." + hash).openConnection();
