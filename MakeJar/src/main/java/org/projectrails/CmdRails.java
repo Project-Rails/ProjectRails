@@ -26,8 +26,10 @@ public class CmdRails extends RailCommand {
     @Override
     public void handleCommand(MC_Player p, String[] args) {
         if (args.length < 1) {
-            Attributes a = Rail_Updater.getManifest(Rail_Updater.class).getAttributes("GitCommitHash");
+            Attributes a = Rail_Updater.getManifest(Rail_Updater.class).getMainAttributes();
             String hash = a.getValue("GitCommitHash");
+            if (hash.endsWith("-dirty")) hash = hash.replace("-dirty", "");
+
             sendMessage(p, "ProjectRails version git-Rails-" + hash);
         }
         
