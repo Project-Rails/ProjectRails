@@ -31,3 +31,11 @@ Or on windows just run
 ```
 windows-build.bat
 ```
+
+Creating new patches
+=====
+
+1. build ProjectRails
+2. cd into the generated Rails folder and edit the files you need.
+3. After git commiting your changes in the Rails folder run the command ``git format-patch origin/master -o "../Rainbow-Patches"```
+4. cd back into the main folder and git commit the patches.

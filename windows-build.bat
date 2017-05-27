@@ -17,6 +17,8 @@ echo Applying patches
 
 java -jar windows-patch-applyer.jar
 
+del windows-patch-applyer.jar
+
 cd ..
 
 java -jar movefiles.jar
