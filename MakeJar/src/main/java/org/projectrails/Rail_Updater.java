@@ -30,8 +30,8 @@ public class Rail_Updater {
             String status = obj.get("status").getAsString();
 
             if (status.equalsIgnoreCase("identical")) {
-			    return 0;
-		    }
+                return 0;
+            }
             if (status.equalsIgnoreCase("behind")) {
                 return obj.get("behind_by").getAsInt();
             }
