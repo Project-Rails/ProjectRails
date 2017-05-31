@@ -7,7 +7,7 @@ import PluginReference.MC_Player;
 public abstract class RailCommand implements PluginReference.MC_Command {
 
     @Override
-    public List<String> getTabCompletionList(MC_Player arg0, String[] arg1) {
+    public List<String> getTabCompletionList(MC_Player p, String[] args) {
         return null;
     }
 

@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.jar.Attributes;
 
+import org.projectrainbow.commands._CmdVer;
+
 import PluginReference.MC_Player;
 
 public class CmdRails extends RailCommand {
@@ -25,7 +27,7 @@ public class CmdRails extends RailCommand {
 
     @Override
     public void handleCommand(MC_Player p, String[] args) {
-        if (args.length < 1) {
+        if (args.length <= 0) {
             Attributes a = Rail_Updater.getManifest(Rail_Updater.class).getMainAttributes();
             String hash = a.getValue("GitCommitHash");
             if (hash.endsWith("-dirty")) hash = hash.replace("-dirty", "");

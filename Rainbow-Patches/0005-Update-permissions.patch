@@ -1,7 +1,7 @@
 From 609fa51001b999c7eeba7954dca7461974c86959 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 20 May 2017 15:18:12 -0400
-Subject: [PATCH 05/13] Update permissions
+Subject: [PATCH 05/14] Update permissions
 
 ---
  .../src/main/java/org/projectrainbow/mixins/MixinEntityPlayerMP.java | 5 +++++

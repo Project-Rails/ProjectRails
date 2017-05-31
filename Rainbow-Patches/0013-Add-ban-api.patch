@@ -1,7 +1,7 @@
 From db093c2e73fa16d810864a005315dd7f4b4728f5 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Wed, 31 May 2017 00:46:45 -0400
-Subject: [PATCH 13/13] Add ban api
+Subject: [PATCH 13/14] Add ban api
 
 ---
  .../src/main/java/PluginReference/MC_Player.java          | 15 +++++++++++++++

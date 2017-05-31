@@ -11,6 +11,8 @@ import java.io.OutputStreamWriter;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import org.apache.commons.io.IOUtils;
+
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
@@ -29,22 +31,17 @@ public class RailConfig {
 
     public final boolean saveDefaultConfig() {
         if (!configFile.exists()) {
-            URL def = getClass().getClassLoader().getResource(configFile.getName());
+            InputStream def = getClass().getClassLoader().getResourceAsStream(configFile.getName());
             if (def != null) {
                 try {
-                    BufferedWriter write = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(configFile)));
-                    BufferedReader read = new BufferedReader(new FileReader(new File(def.toURI())));
-
-                    String cl;
-                    while ((cl = read.readLine()) != null)
-                        write.write(cl + System.getProperty("line.separator"));
+                    FileOutputStream write = new FileOutputStream(configFile);
+                    
+                    IOUtils.copy(def, write);
 
                     write.close();
-                    read.close();
+                    def.close();
                     return true;
                 } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (URISyntaxException e) {
                     e.printStackTrace();
                 }
             } else {
