@@ -1,7 +1,7 @@
 From 821e5207f1f6eea1874dfc6654396d1c290f9039 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 20 May 2017 14:47:11 -0400
-Subject: [PATCH 01/12] Add projectrails config
+Subject: [PATCH 01/13] Add projectrails config
 
 ---
  rainbow/src/main/resources/projectrails.yml | 9 +++++++++
