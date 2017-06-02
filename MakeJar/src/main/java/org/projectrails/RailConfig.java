@@ -1,15 +1,9 @@
 package org.projectrails;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStreamWriter;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 import org.apache.commons.io.IOUtils;
 
@@ -35,9 +29,7 @@ public class RailConfig {
             if (def != null) {
                 try {
                     FileOutputStream write = new FileOutputStream(configFile);
-                    
                     IOUtils.copy(def, write);
-
                     write.close();
                     def.close();
                     return true;

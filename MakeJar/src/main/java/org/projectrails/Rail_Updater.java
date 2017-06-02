@@ -9,6 +9,8 @@ import java.net.URL;
 import java.util.jar.Attributes;
 import java.util.jar.Manifest;
 
+import org.projectrainbow.Updater;
+
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -40,7 +42,7 @@ public class Rail_Updater {
             return -3;
         }   
     }
-    
+
     public static Manifest getManifest(Class<?> clz) {
         String resource = "/" + clz.getName().replace(".", "/") + ".class";
         String fullPath = clz.getResource(resource).toString();
@@ -53,4 +55,18 @@ public class Rail_Updater {
             throw new RuntimeException("Loading MANIFEST for class " + clz + " failed!", e);
         }
     }
+
+    public static int rainbowCheck() {
+        String latest = Updater.getLatestVersion();
+        if (!latest.startsWith("ERROR")) {
+            try {
+                int behind = (Integer.valueOf(latest) - Integer.valueOf(Rails.getRainbowVersion()));
+                return behind;
+            } catch (NumberFormatException e) {
+                return -1;
+            }
+        } else {
+            return -2;
+        }
+    } 
 }

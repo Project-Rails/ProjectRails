@@ -3,12 +3,15 @@ package org.projectrails;
 import java.util.jar.Attributes;
 
 import org.projectrainbow.ServerWrapper;
+import org.projectrainbow.Updater;
 import org.projectrainbow._DiwUtils;
+import org.projectrainbow.launch.Bootstrap;
 
 import net.md_5.bungee.config.Configuration;
 
 public class Rails {
     private static RailConfig config = new RailConfig("projectrails.yml");
+    private static int upstream = 169; // Change when updating upstream.
 
     /**
      * Runs ProjectRails stuff. Called in
@@ -20,12 +23,17 @@ public class Rails {
         if (hash.endsWith("-dirty")) hash = hash.replace("-dirty", "");
 
         _DiwUtils.version = "git-ProjectRails-" + hash;
-        _DiwUtils.upstream_version = "169"; // Change when updating upstream.
+        _DiwUtils.upstream_version = String.valueOf(upstream);
+
         config.saveDefaultConfig();
         ServerWrapper.getInstance().registerCommand(new CmdRails());
     }
 
     public static Configuration getConfig() {
         return config.getConfig();
+    }
+    
+    public static int getRainbowVersion() {
+        return upstream;
     }
 }
