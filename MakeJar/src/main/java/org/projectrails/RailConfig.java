@@ -5,18 +5,20 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.apache.commons.io.IOUtils;
-
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
 
 public class RailConfig {
     private Configuration configuration = null;
-    private File configFile;
+    public File configFile;
 
     public RailConfig(String name) {
         this.configFile = new File(name);
+    }
+
+    public RailConfig(File f) {
+        this.configFile = f;
     }
 
     public final Configuration getConfig() {
@@ -29,7 +31,7 @@ public class RailConfig {
             if (def != null) {
                 try {
                     FileOutputStream write = new FileOutputStream(configFile);
-                    IOUtils.copy(def, write);
+                    org.apache.commons.io.IOUtils.copy(def, write);
                     write.close();
                     def.close();
                     return true;
@@ -71,20 +73,9 @@ public class RailConfig {
     }
 
     public final void addDefault(String path, Object value) {
-        if (!configuration.contains(path)) {
-            configuration.set(path, value);
-            saveConfig();
+        if (configuration == null) {
+            reloadConfig();
         }
-    }
-
-    public final void addDefault(String path, int value) {
-        if (!configuration.contains(path)) {
-            configuration.set(path, value);
-            saveConfig();
-        }
-    }
-
-    public final void addDefault(String path, boolean value) {
         if (!configuration.contains(path)) {
             configuration.set(path, value);
             saveConfig();

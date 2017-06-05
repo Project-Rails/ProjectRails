@@ -7,3 +7,8 @@ updater:
   # running the lastest version when
   # your just running 1 version behind.
   lower: false
+# File settings (warps, etc...)
+files: 
+  # Use new configuration system
+  # Old warps will need to be moved. 
+  use-new-warps-config: true

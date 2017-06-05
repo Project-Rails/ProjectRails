@@ -1,7 +1,7 @@
-From 6286ecffa68244a11f5e55fa9b6663b316597b29 Mon Sep 17 00:00:00 2001
+From b9f346012c99c6bb0d04194b6809d10723ddbe7a Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Fri, 26 May 2017 02:32:49 -0400
-Subject: [PATCH 12/14] View distance api
+Subject: [PATCH 12/15] View distance api
 
 ---
  .../src/main/java/PluginReference/MC_Server.java   | 23 ++++++++++++++++++++++

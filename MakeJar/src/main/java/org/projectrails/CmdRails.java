@@ -7,7 +7,6 @@ import java.util.jar.Attributes;
 import PluginReference.MC_Player;
 
 public class CmdRails extends RailCommand {
-
     @Override
     public List<String> getAliases() {
         return Arrays.asList("projectrails");
@@ -16,11 +15,6 @@ public class CmdRails extends RailCommand {
     @Override
     public String getCommandName() {
         return "rails";
-    }
-
-    @Override
-    public String getHelpLine(MC_Player arg0) {
-        return "A ProjectRails provided command.";
     }
 
     @Override
@@ -50,10 +44,11 @@ public class CmdRails extends RailCommand {
             int i = Rail_Updater.rainbowCheck();
             if (i == 0) {
                 sendMessage(p, "Running the latest upstream build.");
+                return;
             } else {
-                sendMessage(p, "Running " + i + " builds behind latest upstream build.");
+                sendMessage(p, "Running " + i + " builds behind the latest upstream build.");
+                return;
             }
         }
     }
-
 }

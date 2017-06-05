@@ -1,0 +1,83 @@
+From 76e39a4ebf373fc8a20816a65955461de41ebfcc Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Mon, 5 Jun 2017 00:27:14 -0400
+Subject: [PATCH 15/15] Recode warp system
+
+---
+ .../main/java/org/projectrainbow/_WarpManager.java | 36 +++++++++++++++++-----
+ 1 file changed, 29 insertions(+), 7 deletions(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/_WarpManager.java b/rainbow/src/main/java/org/projectrainbow/_WarpManager.java
+index 22d8ae4..385a314 100755
+--- a/rainbow/src/main/java/org/projectrainbow/_WarpManager.java
++++ b/rainbow/src/main/java/org/projectrainbow/_WarpManager.java
+@@ -16,6 +16,10 @@ import java.util.Iterator;
+ import java.util.Map;
+ import java.util.concurrent.ConcurrentHashMap;
+ 
++// ProjectRails start
++import org.projectrails.warps.WarpConfiguration; // ProjectRails: WarpManager v2
++import org.projectrails.Rails;
++// ProjectRails end
+ 
+ public class _WarpManager {
+ 
+@@ -25,6 +29,11 @@ public class _WarpManager {
+     public _WarpManager() {}
+ 
+     public static void SaveWarps() {
++        // ProjectRails start
++        if (Rails.useVersion2Warps()) {
++            WarpConfiguration.save();
++        } else
++        // ProjectRails end
+         try {
+             long exc = System.currentTimeMillis();
+             File file = new File(_DiwUtils.RainbowDataDirectory + Warp_FileName);
+@@ -51,6 +60,11 @@ public class _WarpManager {
+     }
+ 
+     public static void LoadWarps() {
++        // ProjectRails start
++        if (Rails.useVersion2Warps()) {
++            WarpConfiguration.load();
++        } else
++        // ProjectRails end
+         try {
+             File file = new File(_DiwUtils.RainbowDataDirectory + Warp_FileName);
+             File oldFile = new File(Warp_FileName);
+@@ -80,16 +94,24 @@ public class _WarpManager {
+     }
+ 
+     public static String GetActualWarpName(String name) {
+-        Iterator var2 = adminWarps.keySet().iterator();
++        // ProjectRails start
++        if (Rails.useVersion2Warps()) {
++            WarpConfiguration.reload();
++            if (WarpConfiguration.warps.getConfig().getSection("warps." + name.toLowerCase()) == null) {
++                return null;
++            }
++            return name;
++        } else { // ProjectRails end
++            Iterator var2 = adminWarps.keySet().iterator();
+ 
+-        while (var2.hasNext()) {
+-            String key = (String) var2.next();
++            while (var2.hasNext()) {
++                String key = (String) var2.next();
+ 
+-            if (key.equalsIgnoreCase(name)) {
+-                return key;
++                if (key.equalsIgnoreCase(name)) {
++                    return key;
++                }
+             }
+-        }
+-
++        } // ProjectRails
+         return null;
+     }
+ }
+-- 
+2.13.0.windows.1
+
