@@ -1,11 +1,17 @@
 package org.projectrails;
 
+import PluginReference.ChatColor;
 import PluginReference.MC_Player;
 
 public abstract class RailCommand implements PluginReference.MC_Command {
     @Override
     public java.util.List<String> getAliases() {
-        return null;
+        return getInfo().aliases;
+    }
+    
+    @Override
+    public String getCommandName() {
+        return getInfo().name;
     }
 
     @Override
@@ -19,10 +25,13 @@ public abstract class RailCommand implements PluginReference.MC_Command {
     }
 
     @Override
-    public String getHelpLine(MC_Player arg0) {
-        return "A ProjectRails provided command.";
+    public String getHelpLine(MC_Player p) {
+        return ChatColor.AQUA + getCommandName() + ChatColor.WHITE + " --- " + ChatColor.translateAlternateColorCodes('&', getInfo().usage);
     }
 
+    /**
+     * Replacement for {@link MC_Player#sendMessage(String)} that supports sending messages to the console/server log.
+     */
     public void sendMessage(MC_Player p, String msg) {
         if (p == null) {
             System.out.println(msg);
@@ -30,4 +39,6 @@ public abstract class RailCommand implements PluginReference.MC_Command {
             p.sendMessage(msg);
         }
     }
+
+    public abstract CommandInfo getInfo();
 }

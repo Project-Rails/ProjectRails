@@ -1,25 +1,14 @@
 package org.projectrails;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.jar.Attributes;
 
 import PluginReference.MC_Player;
 
 public class CmdRails extends RailCommand {
     @Override
-    public List<String> getAliases() {
-        return Arrays.asList("projectrails");
-    }
-
-    @Override
-    public String getCommandName() {
-        return "rails";
-    }
-
-    @Override
     public void handleCommand(MC_Player p, String[] args) {
-        if (args.length <= 0) {
+        if (args.length == 0) {
             Attributes a = Rail_Updater.getManifest(Rail_Updater.class).getMainAttributes();
             String hash = a.getValue("GitCommitHash");
             if (hash.endsWith("-dirty")) hash = hash.replace("-dirty", "");
@@ -50,5 +39,14 @@ public class CmdRails extends RailCommand {
                 return;
             }
         }
+    }
+
+    @Override
+    public CommandInfo getInfo() {
+        CommandInfo info = new CommandInfo();
+        info.name = "rails";
+        info.aliases = Arrays.asList("projectrails");
+        info.usage = "Rails main command.";
+        return info;
     }
 }

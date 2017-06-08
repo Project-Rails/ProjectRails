@@ -1,28 +1,12 @@
 package org.projectrails.warps;
 
-import java.util.List;
-
+import org.projectrails.CommandInfo;
 import org.projectrails.RailCommand;
 
 import PluginReference.ChatColor;
 import PluginReference.MC_Player;
 
 public class CmdWarp extends RailCommand {
-    @Override
-    public String getCommandName() {
-        return "warp";
-    }
-
-    @Override
-    public List<String> getAliases() {
-        return null;
-    }
-
-    @Override
-    public String getHelpLine(MC_Player plr) {
-        return ChatColor.AQUA + "/warp" + ChatColor.WHITE + " --- Warp somewhere";
-    }
-
     @Override
     public void handleCommand(MC_Player plr, String[] args) {
         if (plr == null) {
@@ -51,8 +35,11 @@ public class CmdWarp extends RailCommand {
     }
 
     @Override
-    public List<String> getTabCompletionList(MC_Player plr, String[] args) {
-        // TODO: Tab complete warp name.
-        return null;
+    public CommandInfo getInfo() {
+        CommandInfo info = new CommandInfo();
+        info.name = "warp";
+        info.aliases = null;
+        info.usage = "warp somewhere";
+        return info;
     }
 }

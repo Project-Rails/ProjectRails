@@ -1,23 +1,12 @@
 package org.projectrails.warps;
 
-import java.util.List;
-
+import org.projectrails.CommandInfo;
 import org.projectrails.RailCommand;
 
 import PluginReference.ChatColor;
 import PluginReference.MC_Player;
 
 public class CmdSetwarp extends RailCommand {
-    @Override
-    public String getCommandName() {
-        return "setwarp";
-    }
-
-    @Override
-    public String getHelpLine(MC_Player arg0) {
-        return ChatColor.AQUA + "/setwarp" + ChatColor.WHITE + " --- set a warp";
-    }
-
     @Override
     public void handleCommand(MC_Player p, String[] args) {
         if (args.length <= 0) {
@@ -35,7 +24,11 @@ public class CmdSetwarp extends RailCommand {
     }
 
     @Override
-    public List<String> getAliases() {
-        return null;
+    public CommandInfo getInfo() {
+        CommandInfo info = new CommandInfo();
+        info.name = "setwarp";
+        info.aliases = null;
+        info.usage = "set a warp";
+        return info;
     }
 }

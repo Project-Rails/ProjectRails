@@ -1,16 +1,12 @@
 package org.projectrails.warps;
 
+import org.projectrails.CommandInfo;
 import org.projectrails.RailCommand;
 
 import PluginReference.ChatColor;
 import PluginReference.MC_Player;
 
 public class CmdDelwarp extends RailCommand {
-    @Override
-    public String getCommandName() {
-        return "delwarp";
-    }
-
     @Override
     public void handleCommand(MC_Player p, String[] args) {
         if (args.length <= 0) {
@@ -24,5 +20,14 @@ public class CmdDelwarp extends RailCommand {
     @Override
     public boolean hasPermissionToUse(MC_Player p) {
         return super.hasPermissionToUse(p) || p.hasPermission("rainbow.delwarp") || p.hasPermission("rails.delwarp");
+    }
+
+    @Override
+    public CommandInfo getInfo() {
+        CommandInfo info = new CommandInfo();
+        info.name = "delwarp";
+        info.aliases = null;
+        info.usage = "remove a warp";
+        return info;
     }
 }
