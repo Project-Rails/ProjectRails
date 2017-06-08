@@ -1,11 +1,11 @@
 @echo off
 
-REM git submodule init
-REM git submodule update
-REM cd Rainbow
-REM git fetch
-REM git branch -f upstream master >/dev/null
-REM cd ..
+git submodule init
+git submodule update
+cd Rainbow
+git fetch
+git branch -f upstream master >/dev/null
+cd ..
 git clone Rainbow Rails
 
 copy windows-patch-applyer.jar Rails
