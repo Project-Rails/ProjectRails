@@ -3,7 +3,7 @@
   <parent>
     <artifactId>rainbow-parent</artifactId>
     <groupId>org.projectrainbow</groupId>
-    <version>1.11.2-SNAPSHOT</version>
+    <version>1.12-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>MakeJar</artifactId>
@@ -29,23 +29,15 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.3</version>
         <configuration>
-          <proc>none</proc>
+          <compilerArgs>
+            <compilerArg>-AdefaultObfuscationEnv=notch</compilerArg>
+            <compilerArg>-AreobfNotchSrgFile=${project.parent.basedir}/mapping-reverse.srg</compilerArg>
+            <compilerArg>-AoutNotchSrgFile=${project.basedir}/target/mixin.srg</compilerArg>
+            <compilerArg>-AoutRefMapFile=mixin.refmap.json</compilerArg>
+          </compilerArgs>
           <showDeprecation>true</showDeprecation>
           <showWarnings>true</showWarnings>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>net.md-5</groupId>
-        <artifactId>simulare</artifactId>
-        <version>0.1</version>
-        <executions>
-          <execution>
-            <phase>process-classes</phase>
-            <goals>
-              <goal>transform</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <groupId>pl.project13.maven</groupId>
@@ -103,8 +95,21 @@
       <plugin>
         <groupId>net.md-5</groupId>
         <artifactId>specialsource-maven-plugin</artifactId>
-        <version>1.2.1-CodeCrafter47-6-SNAPSHOT</version>
+        <version>1.2.1</version>
         <executions>
+          <execution>
+            <id>reobfuscate-mixins</id>
+            <phase>package</phase>
+            <goals>
+              <goal>remap</goal>
+            </goals>
+            <configuration>
+              <srgIn>${project.basedir}/target/mixin.srg</srgIn>
+              <remappedDependencies>
+                <remappedDependency>org.projectrainbow:minecraft-server:${minecraft.version}:jar</remappedDependency>
+              </remappedDependencies>
+            </configuration>
+          </execution>
           <execution>
             <id>reobfuscate</id>
             <phase>package</phase>
@@ -112,11 +117,7 @@
               <goal>remap</goal>
             </goals>
             <configuration>
-              <srgIn>${project.parent.basedir}/Rails/mapping.srg</srgIn>
-              <reverse>true</reverse>
-              <skipDebug>false</skipDebug>
-              <copyResources>true</copyResources>
-              <mixinSupport>true</mixinSupport>
+              <srgIn>${project.parent.basedir}/Rails/mapping-reverse.srg</srgIn>
               <remappedDependencies>
                 <remappedDependency>org.projectrainbow:minecraft-server:${minecraft.version}:jar</remappedDependency>
               </remappedDependencies>
@@ -171,33 +172,21 @@
     <dependency>
       <groupId>org.projectrainbow</groupId>
       <artifactId>install-dependencies</artifactId>
-      <version>1.11.2-SNAPSHOT</version>
+      <version>1.12-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.projectrainbow</groupId>
       <artifactId>PluginReference</artifactId>
-      <version>1.11.2-SNAPSHOT</version>
+      <version>1.12-SNAPSHOT</version>
       <classifier>original</classifier>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.projectrainbow</groupId>
       <artifactId>minecraft-server</artifactId>
-      <version>1.11.2</version>
+      <version>1.12</version>
       <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.projectrainbow</groupId>
-      <artifactId>PluginExample</artifactId>
-      <version>1.11.2-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.projectrainbow</groupId>
-      <artifactId>PluginExampleEvents</artifactId>
-      <version>1.11.2-SNAPSHOT</version>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>junit</groupId>

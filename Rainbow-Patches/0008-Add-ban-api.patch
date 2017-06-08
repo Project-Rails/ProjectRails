@@ -1,0 +1,82 @@
+From fb4c908b01df69baf75bff9eaac114765b19418c Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Wed, 7 Jun 2017 20:16:07 -0400
+Subject: [PATCH 08/10] Add ban api
+
+---
+ .../src/main/java/PluginReference/MC_Player.java          | 15 +++++++++++++++
+ .../java/org/projectrainbow/OfflinePlayerWrapper.java     | 14 ++++++++++++++
+ .../org/projectrainbow/mixins/MixinEntityPlayerMP.java    | 11 +++++++++++
+ 3 files changed, 40 insertions(+)
+
+diff --git a/PluginReference/src/main/java/PluginReference/MC_Player.java b/PluginReference/src/main/java/PluginReference/MC_Player.java
+index d1752cb..b2ccfff 100644
+--- a/PluginReference/src/main/java/PluginReference/MC_Player.java
++++ b/PluginReference/src/main/java/PluginReference/MC_Player.java
+@@ -532,5 +532,20 @@ public interface MC_Player extends MC_LivingEntity {
+      * @param location the new home
+      */
+     void setHome2(MC_Location location);
++
++    // ProjectRails: start ban methods
++    /**
++     * Checks if player is banned from the server.
++     * 
++     * @return Is player banned.
++     */
++    boolean isBanned();
++    /**
++     * Bans the player.
++     * 
++     * @param ban - set the ban.
++     */
++    void setBanned(boolean ban);
++    // ProjectRails: end ban methods
+ }
+ 
+diff --git a/rainbow/src/main/java/org/projectrainbow/OfflinePlayerWrapper.java b/rainbow/src/main/java/org/projectrainbow/OfflinePlayerWrapper.java
+index 2d2d401..d8e004d 100755
+--- a/rainbow/src/main/java/org/projectrainbow/OfflinePlayerWrapper.java
++++ b/rainbow/src/main/java/org/projectrainbow/OfflinePlayerWrapper.java
+@@ -545,4 +545,18 @@ public class OfflinePlayerWrapper implements MC_Player {
+                 location.dimension, location.yaw, location.pitch
+         ));
+     }
++
++    // ProjectRails: start ban api
++    @Override
++    public boolean isBanned() {
++        net.minecraft.entity.player.EntityPlayerMP plr = (net.minecraft.entity.player.EntityPlayerMP) ServerWrapper.getInstance().getOfflinePlayerByUUID(getUUID());
++        return _DiwUtils.getMinecraftServer().getPlayerList().getBannedPlayers().isBanned(plr.getGameProfile());
++    }
++
++    @Override
++    public void setBanned(boolean ban) {
++        net.minecraft.entity.player.EntityPlayerMP plr = (net.minecraft.entity.player.EntityPlayerMP) ServerWrapper.getInstance().getOfflinePlayerByUUID(getUUID());
++        _DiwUtils.getMinecraftServer().getPlayerList().getBannedPlayers().addEntry(new net.minecraft.server.management.UserListBansEntry(plr.getGameProfile()));
++    }
++    // ProjectRails: end ban api
+ }
+diff --git a/rainbow/src/main/java/org/projectrainbow/mixins/MixinEntityPlayerMP.java b/rainbow/src/main/java/org/projectrainbow/mixins/MixinEntityPlayerMP.java
+index cd2a7ca..90c74a7 100644
+--- a/rainbow/src/main/java/org/projectrainbow/mixins/MixinEntityPlayerMP.java
++++ b/rainbow/src/main/java/org/projectrainbow/mixins/MixinEntityPlayerMP.java
+@@ -827,4 +827,15 @@ public abstract class MixinEntityPlayerMP extends MixinEntityPlayer implements I
+                 location.dimension, location.yaw, location.pitch
+         ));
+     }
++
++    // ProjectRails: start ban methods
++    @Override
++    public boolean isBanned() {
++        return _DiwUtils.getMinecraftServer().getPlayerList().getBannedPlayers().isBanned(_DiwUtils.getMinecraftServer().getPlayerList().getPlayerByUUID(getUUID()).getGameProfile());
++    }
++    @Override
++    public void setBanned(boolean ban) {
++        _DiwUtils.getMinecraftServer().getPlayerList().getBannedPlayers().addEntry(new net.minecraft.server.management.UserListBansEntry(_DiwUtils.getMinecraftServer().getPlayerList().getPlayerByUUID(getUUID()).getGameProfile()));
++    }
++    // ProjectRails: end ban methods
+ }
+-- 
+2.13.0.windows.1
+
