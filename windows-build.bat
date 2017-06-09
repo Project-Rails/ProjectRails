@@ -23,6 +23,8 @@ cd ..
 
 java -jar movefiles.jar
 
+java -jar minify.jar MakeJar
+
 mvn package
 
 java -jar movefiles.jar undo
