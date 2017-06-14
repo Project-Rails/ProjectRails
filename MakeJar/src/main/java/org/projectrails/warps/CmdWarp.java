@@ -20,8 +20,8 @@ public class CmdWarp extends RailCommand {
                 if (ChatColor.StripColor(warplist).length() <= "Warps: ".length()) {
                     plr.sendMessage(ChatColor.RED + "No warps exist!");
                     return;
-                } 
-                plr.sendMessage(warplist);
+                }
+                plr.sendMessage(warplist.substring(0, (warplist.length() - 1)));
             } else {
                 WarpConfiguration.warps.reloadConfig();
                 if (WarpConfiguration.warps.getConfig().get("warps." + args[0].toLowerCase() + ".x") == null) {
