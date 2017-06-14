@@ -55,11 +55,11 @@ public class Rails {
     public static int getRainbowVersion() {
         return upstream;
     }
-    
+
     private static void registerCommand(PluginReference.MC_Command cmd) {
         ServerWrapper.getInstance().registerCommand(cmd);
     }
-    
+
     public static boolean useVersion2Warps() {
         return useWarpsV2;
     }
