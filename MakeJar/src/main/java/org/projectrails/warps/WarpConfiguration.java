@@ -3,7 +3,6 @@ package org.projectrails.warps;
 import java.io.File;
 
 import org.projectrails.RailConfig;
-import org.projectrails.Rails;
 import org.projectrainbow._DiwUtils;
 
 import PluginReference.ChatColor;
