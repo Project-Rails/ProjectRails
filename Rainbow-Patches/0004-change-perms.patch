@@ -1,7 +1,7 @@
 From 733365a569a9421e78bb626258562d27f47fdcec Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Wed, 7 Jun 2017 19:28:48 -0400
-Subject: [PATCH 04/10] change perms
+Subject: [PATCH 04/11] change perms
 
 ---
  .../src/main/java/org/projectrainbow/mixins/MixinEntityPlayerMP.java | 5 +++++

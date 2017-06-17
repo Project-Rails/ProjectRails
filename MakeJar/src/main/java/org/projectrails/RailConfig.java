@@ -22,7 +22,7 @@ public class RailConfig {
     }
 
     public final Configuration getConfig() {
-        return configuration;
+        return this.configuration;
     }
 
     public final boolean saveDefaultConfig() {

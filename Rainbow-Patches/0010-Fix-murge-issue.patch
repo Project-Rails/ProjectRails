@@ -1,7 +1,7 @@
 From ae671c73cc87644de7a980812cc3e7a77ae4d694 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Wed, 7 Jun 2017 22:59:20 -0400
-Subject: [PATCH 10/10] Fix murge issue
+Subject: [PATCH 10/11] Fix murge issue
 
 ---
  rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java | 2 +-

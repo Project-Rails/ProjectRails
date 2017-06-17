@@ -1,7 +1,7 @@
 From 300587693f1d52a48496fe7d2ea75e3e2780e857 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Wed, 7 Jun 2017 19:37:38 -0400
-Subject: [PATCH 07/10] Add view distance api
+Subject: [PATCH 07/11] Add view distance api
 
 ---
  .../src/main/java/PluginReference/MC_Server.java   | 23 ++++++++++++++++++++++
