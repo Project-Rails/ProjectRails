@@ -38,7 +38,8 @@ case "$1" in
     (
         set -e
         cd "$basedir"
-        scripts/build.sh "$basedir"
+        # Windows patch applyer works on Linux two.
+        java -jar windows-patch-applyer.jar
     )
     ;;
     *)
