@@ -43,10 +43,11 @@ case "$1" in
         git submodule update
         git clone Rainbow Rails
         git config commit.gpgsign false
-        cp windows-patch-applyer.jar Rails/windows-patch-applyer.jar
+        #cp windows-patch-applyer.jar Rails/windows-patch-applyer.jar
         cd Rails
-        java -jar windows-patch-applyer.jar
-        rm windoes-patch-applyer.jar
+        git am ../Rainbow-Patches/*.patch
+        #java -jar windows-patch-applyer.jar
+        #rm windoes-patch-applyer.jar
         cd ..
     )
     ;;
