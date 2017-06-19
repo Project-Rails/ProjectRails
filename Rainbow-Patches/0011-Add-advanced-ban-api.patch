@@ -1,7 +1,7 @@
 From 182e14628394f5f064b2b2e4a39e91e4015f8aab Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 17 Jun 2017 14:12:40 -0400
-Subject: [PATCH 11/11] Add advanced ban api
+Subject: [PATCH 11/12] Add advanced ban api
 
 ---
  .../src/main/java/PluginReference/MC_Server.java   | 24 ++++++++++++++++++++++

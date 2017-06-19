@@ -1,7 +1,7 @@
 From e051abf6ee1da16eb5443fc2bfc2f9268891404f Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Wed, 7 Jun 2017 19:22:36 -0400
-Subject: [PATCH 02/11] Add ProjectRails updater
+Subject: [PATCH 02/12] Add ProjectRails updater
 
 ---
  rainbow/src/main/java/org/projectrainbow/Updater.java | 10 ++++++++++
