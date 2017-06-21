@@ -4,7 +4,7 @@ git submodule init
 git submodule update
 cd Rainbow
 git fetch
-git branch -f upstream master >/dev/null
+git branch -f origin master >/dev/null
 cd ..
 git clone Rainbow Rails
 
