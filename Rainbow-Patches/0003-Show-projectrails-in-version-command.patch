@@ -1,7 +1,7 @@
-From c2465c446e0cf398732ff7f045c4b7c8c9835341 Mon Sep 17 00:00:00 2001
+From bfa32f565f462cd751796547a1b657b1c23c905b Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Wed, 7 Jun 2017 19:25:23 -0400
-Subject: [PATCH 03/12] Show projectrails in version command
+Subject: [PATCH] Show projectrails in version command
 
 ---
  rainbow/src/main/java/org/projectrainbow/commands/_CmdVer.java | 3 ++-

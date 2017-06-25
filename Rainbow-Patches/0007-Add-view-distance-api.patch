@@ -1,7 +1,7 @@
-From 300587693f1d52a48496fe7d2ea75e3e2780e857 Mon Sep 17 00:00:00 2001
+From 050d096b2ba760888ed2952b3d6fdb550fae61fd Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Wed, 7 Jun 2017 19:37:38 -0400
-Subject: [PATCH 07/12] Add view distance api
+Subject: [PATCH] Add view distance api
 
 ---
  .../src/main/java/PluginReference/MC_Server.java   | 23 ++++++++++++++++++++++
@@ -42,12 +42,12 @@ index 7d1656c..680309f 100644
  }
  
 diff --git a/rainbow/src/main/java/org/projectrainbow/ServerWrapper.java b/rainbow/src/main/java/org/projectrainbow/ServerWrapper.java
-index 98f7e31..3f70dbb 100755
+index 9cebb58..ffc0721 100755
 --- a/rainbow/src/main/java/org/projectrainbow/ServerWrapper.java
 +++ b/rainbow/src/main/java/org/projectrainbow/ServerWrapper.java
 @@ -523,4 +523,16 @@ public class ServerWrapper implements MC_Server {
      public String getMinecraftVersion() {
-         return _DiwUtils.getMinecraftServer().G(); // getMinecraftVersion
+         return _DiwUtils.getMinecraftServer().getMinecraftVersion();
      }
 +
 +    // ProjectRails start

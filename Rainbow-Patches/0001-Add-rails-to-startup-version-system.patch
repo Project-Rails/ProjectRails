@@ -1,14 +1,14 @@
-From 6fe39b9df7c3a574b66f6f8df63a39d8f41d2c50 Mon Sep 17 00:00:00 2001
+From a73291d0c02c6663b88b2e08c437ca0216e6b46e Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Wed, 7 Jun 2017 19:18:20 -0400
-Subject: [PATCH 01/12] Add rails to startup & version system
+Subject: [PATCH] Add rails to startup & version system
 
 ---
  rainbow/src/main/java/org/projectrainbow/_DiwUtils.java | 8 +++++---
  1 file changed, 5 insertions(+), 3 deletions(-)
 
 diff --git a/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java b/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
-index 2f6bde2..9ce335b 100644
+index 097fc10..df61785 100644
 --- a/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
 +++ b/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
 @@ -118,8 +118,10 @@ public class _DiwUtils {

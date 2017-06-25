@@ -1,14 +1,14 @@
-From 97f0043835582364c229b8e6c09c2785f3c995ba Mon Sep 17 00:00:00 2001
+From 7d0bef61f53983ecb93686ff7b5e5b85846af303 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Mon, 19 Jun 2017 15:38:25 -0400
-Subject: [PATCH 12/12] Optimize MC_Server#getPluginInfo
+Subject: [PATCH] Optimize MC_Server#getPluginInfo
 
 ---
  rainbow/src/main/java/org/projectrainbow/ServerWrapper.java | 5 ++---
  1 file changed, 2 insertions(+), 3 deletions(-)
 
 diff --git a/rainbow/src/main/java/org/projectrainbow/ServerWrapper.java b/rainbow/src/main/java/org/projectrainbow/ServerWrapper.java
-index 460f62c..dd43f21 100755
+index 269ba89..9172658 100755
 --- a/rainbow/src/main/java/org/projectrainbow/ServerWrapper.java
 +++ b/rainbow/src/main/java/org/projectrainbow/ServerWrapper.java
 @@ -363,13 +363,12 @@ public class ServerWrapper implements MC_Server {

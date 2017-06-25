@@ -1,7 +1,7 @@
-From fb4c908b01df69baf75bff9eaac114765b19418c Mon Sep 17 00:00:00 2001
+From b12757df377b93351f3c3eb89c2b2538af60d585 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Wed, 7 Jun 2017 20:16:07 -0400
-Subject: [PATCH 08/12] Add ban api
+Subject: [PATCH] Add ban api
 
 ---
  .../src/main/java/PluginReference/MC_Player.java          | 15 +++++++++++++++
@@ -58,7 +58,7 @@ index 2d2d401..d8e004d 100755
 +    // ProjectRails: end ban api
  }
 diff --git a/rainbow/src/main/java/org/projectrainbow/mixins/MixinEntityPlayerMP.java b/rainbow/src/main/java/org/projectrainbow/mixins/MixinEntityPlayerMP.java
-index cd2a7ca..90c74a7 100644
+index 2e2b9f8..c7e2230 100644
 --- a/rainbow/src/main/java/org/projectrainbow/mixins/MixinEntityPlayerMP.java
 +++ b/rainbow/src/main/java/org/projectrainbow/mixins/MixinEntityPlayerMP.java
 @@ -827,4 +827,15 @@ public abstract class MixinEntityPlayerMP extends MixinEntityPlayer implements I

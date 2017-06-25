@@ -38,7 +38,7 @@ Creating new patches
 1. build ProjectRails
 2. cd into the generated Rails folder and edit the files you need.
 3. git commit your changes (in Rails folder)
-3. generate patches (run ```git format-patch origin/master -o "../Rainbow-Patches"```)
+3. generate patches (run ```git format-patch origin/master -N -o "../Rainbow-Patches"```)
 4. cd back into the main folder and git commit the patches.
 
 Mappings
