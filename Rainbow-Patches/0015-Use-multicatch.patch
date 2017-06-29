@@ -1,0 +1,31 @@
+From 54e89ec0374f4892f2db3361028cdf0ac54b2195 Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Thu, 29 Jun 2017 11:26:30 -0400
+Subject: [PATCH] Use multicatch
+
+---
+ .../src/main/java/org/projectrainbow/mixins/MixinWorldServer.java | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/mixins/MixinWorldServer.java b/rainbow/src/main/java/org/projectrainbow/mixins/MixinWorldServer.java
+index 02a7ec7..0b059c7 100644
+--- a/rainbow/src/main/java/org/projectrainbow/mixins/MixinWorldServer.java
++++ b/rainbow/src/main/java/org/projectrainbow/mixins/MixinWorldServer.java
+@@ -246,13 +246,7 @@ public abstract class MixinWorldServer extends World implements MC_World, IMixin
+                 return null;
+             }
+             return (MC_Entity) entity;
+-        } catch (NoSuchMethodException e) {
+-            LogManager.getLogger("Minecraft").warn("Failed to spawn entity " + var1, e);
+-        } catch (IllegalAccessException e) {
+-            LogManager.getLogger("Minecraft").warn("Failed to spawn entity " + var1, e);
+-        } catch (InstantiationException e) {
+-            LogManager.getLogger("Minecraft").warn("Failed to spawn entity " + var1, e);
+-        } catch (InvocationTargetException e) {
++        } catch (InvocationTargetException | InstantiationException | IllegalAccessException | NoSuchMethodException e) {
+             LogManager.getLogger("Minecraft").warn("Failed to spawn entity " + var1, e);
+         }
+         return null;
+-- 
+2.13.0.windows.1
+
