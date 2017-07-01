@@ -29,10 +29,8 @@ public class RailConfig {
         if (!configFile.exists()) {
             InputStream def = getClass().getClassLoader().getResourceAsStream(configFile.getName());
             if (def != null) {
-                try {
-                    FileOutputStream write = new FileOutputStream(configFile);
+                try (FileOutputStream write = new FileOutputStream(configFile)) {
                     org.apache.commons.io.IOUtils.copy(def, write);
-                    write.close();
                     def.close();
                     return true;
                 } catch (IOException e) {
@@ -50,10 +48,13 @@ public class RailConfig {
         Configuration defaultConfig = null;
         InputStream defaultConfigStream = getClass().getClassLoader().getResourceAsStream(configFile.getName());
 
-        if (defaultConfigStream != null)
+        if (defaultConfigStream != null) {
             defaultConfig = ConfigurationProvider.getProvider(YamlConfiguration.class).load(defaultConfigStream);
+        }
 
-        if (!configFile.exists()) return (configuration = defaultConfig);
+        if (!configFile.exists()) {
+            return (configuration = defaultConfig);
+        }
 
         try {
             return (configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(configFile,

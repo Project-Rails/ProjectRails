@@ -2,6 +2,7 @@ package org.projectrails;
 
 import java.util.jar.Attributes;
 
+import org.projectrails.commands.CmdAfk;
 import org.projectrails.warps.CmdDelwarp;
 import org.projectrails.warps.CmdSetwarp;
 import org.projectrails.warps.CmdWarp;
@@ -15,15 +16,18 @@ public class Rails {
     private static RailConfig config = new RailConfig("projectrails.yml");
     private static int upstream = 171; // Change when updating upstream.
     private static boolean useWarpsV2 = false;
+    public static boolean displaynameafk = true;
 
     /**
-     * ProjectRails startup. 
-     * Runs in {@link _DiwUtils#Startup()}
+     * ProjectRails startup. Runs in {@link _DiwUtils#Startup()}
      */
     public static void run() {
         Attributes a = Rail_Updater.getManifest(Rail_Updater.class).getMainAttributes();
-        String hash = a.getValue("GitCommitHash"); 
-        if (hash.endsWith("-dirty")) hash = hash.replace("-dirty", "");
+        String hash = a.getValue("GitCommitHash");
+        if (hash.endsWith("-dirty")) {
+            System.out.println("ProjectRails DEBUG: This build is custom built!");
+            hash = hash.replace("-dirty", "");
+        }
 
         _DiwUtils.version = "git-ProjectRails-" + hash;
         _DiwUtils.upstream_version = String.valueOf(upstream);
@@ -33,10 +37,16 @@ public class Rails {
         WarpConfiguration.warps.saveDefaultConfig();
         WarpConfiguration.load();
 
-        // Backwards compatibility.
+        // Config values.
+        config.addDefault("commands.afk.enable", true);
+        config.addDefault("commands.afk.useDisplayNames", true);
         config.addDefault("files.use-new-warps-config", true);
         config.saveConfig();
         config.reloadConfig();
+        
+        // AFK command.
+        displaynameafk = config.getConfig().getBoolean("commands.afk.useDisplayNames");
+        if (config.getConfig().getBoolean("commands.afk.enable")) registerCommand(new CmdAfk());
 
         // Register commands.
         registerCommand(new CmdRails());

@@ -11,12 +11,14 @@ public class CmdRails extends RailCommand {
         if (args.length == 0) {
             Attributes a = Rail_Updater.getManifest(Rail_Updater.class).getMainAttributes();
             String hash = a.getValue("GitCommitHash");
-            if (hash.endsWith("-dirty")) hash = hash.replace("-dirty", "");
+            if (hash.endsWith("-dirty")) {
+                hash = hash.replace("-dirty", "");
+            }
 
             sendMessage(p, "ProjectRainbow version b" + Rails.getRainbowVersion());
             sendMessage(p, "ProjectRails version git-Rails-" + hash);
         }
- 
+
         if (args[0].equalsIgnoreCase("updatecheck")) {
             int i = Rail_Updater.check();
             if (i == 0) {

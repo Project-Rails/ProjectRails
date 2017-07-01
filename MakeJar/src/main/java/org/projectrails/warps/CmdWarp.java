@@ -35,7 +35,8 @@ public class CmdWarp extends RailCommand {
 
     @Override
     public boolean hasPermissionToUse(MC_Player p) {
-        return super.hasPermissionToUse(p) || p.hasPermission("rainbow.warp") || p.hasPermission("rails.warp") || p.isOp();
+        return super.hasPermissionToUse(p) || p.hasPermission("rainbow.warp") || p.hasPermission("rails.warp")
+                || p.isOp();
     }
 
     @Override

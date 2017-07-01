@@ -19,8 +19,8 @@ public class WarpConfiguration {
     public static void load() {
         System.out.println("[ProjectRails] Warps v2 activated!");
         if (new File(_DiwUtils.RainbowDataDirectory, "warps.dat").exists()) {
-            System.err.println("[ProjectRails] Warps version 1 data file found!");
-            System.err.println("[ProjectRails] You will have to convert your old warps to the new format by yourself.");
+            System.out.println("[ProjectRails] Warps version 1 data file found!");
+            System.out.println("[ProjectRails] You will have to convert your old warps to the new format by yourself.");
         }
         warps.saveDefaultConfig();
         reload();

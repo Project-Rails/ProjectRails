@@ -8,7 +8,7 @@ public abstract class RailCommand implements PluginReference.MC_Command {
     public java.util.List<String> getAliases() {
         return getInfo().aliases;
     }
-    
+
     @Override
     public String getCommandName() {
         return getInfo().name;
@@ -26,11 +26,13 @@ public abstract class RailCommand implements PluginReference.MC_Command {
 
     @Override
     public String getHelpLine(MC_Player p) {
-        return ChatColor.AQUA + getCommandName() + ChatColor.WHITE + " --- " + ChatColor.translateAlternateColorCodes('&', getInfo().usage);
+        return ChatColor.AQUA + getCommandName() + ChatColor.WHITE + " --- "
+                + ChatColor.translateAlternateColorCodes('&', getInfo().usage);
     }
 
     /**
-     * Replacement for {@link MC_Player#sendMessage(String)} that supports sending messages to the console/server log.
+     * Replacement for {@link MC_Player#sendMessage(String)} that supports
+     * sending messages to the console/server log.
      */
     public void sendMessage(MC_Player p, String msg) {
         if (p == null) {
