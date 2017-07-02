@@ -21,7 +21,7 @@ public class CmdAfk extends RailCommand {
             } else {
                 setAFK(plr, true);
             }
-        } else sendMessage(plr, "Your not a player.");
+        } else sendMessage(plr, "You're not a player.");
     }
 
     /**
