@@ -1,4 +1,4 @@
-From bfa32f565f462cd751796547a1b657b1c23c905b Mon Sep 17 00:00:00 2001
+From b827b926c15a02773c93be9f4593a71ca027aeae Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Wed, 7 Jun 2017 19:25:23 -0400
 Subject: [PATCH] Show projectrails in version command

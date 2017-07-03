@@ -1,4 +1,4 @@
-From a73291d0c02c6663b88b2e08c437ca0216e6b46e Mon Sep 17 00:00:00 2001
+From 99f52541ad46cc40d6bc8d722158177157e78baf Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Wed, 7 Jun 2017 19:18:20 -0400
 Subject: [PATCH] Add rails to startup & version system

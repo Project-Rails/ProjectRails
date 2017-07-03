@@ -1,4 +1,4 @@
-From 050d096b2ba760888ed2952b3d6fdb550fae61fd Mon Sep 17 00:00:00 2001
+From dfbec2753fbe638d3e5ec1bbcc5b4a91637a9161 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Wed, 7 Jun 2017 19:37:38 -0400
 Subject: [PATCH] Add view distance api

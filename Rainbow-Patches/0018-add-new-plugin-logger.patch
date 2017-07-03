@@ -1,0 +1,72 @@
+From cee7448333fc284f431cde19c24ac374e5cff4e3 Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Mon, 3 Jul 2017 13:52:44 -0400
+Subject: [PATCH] add new plugin logger
+
+---
+ .../src/main/java/PluginReference/PluginBase.java  | 10 ++++++++
+ .../main/java/PluginReference/PluginLogger.java    | 30 ++++++++++++++++++++++
+ 2 files changed, 40 insertions(+)
+ create mode 100644 PluginReference/src/main/java/PluginReference/PluginLogger.java
+
+diff --git a/PluginReference/src/main/java/PluginReference/PluginBase.java b/PluginReference/src/main/java/PluginReference/PluginBase.java
+index 33dc911..d47417e 100644
+--- a/PluginReference/src/main/java/PluginReference/PluginBase.java
++++ b/PluginReference/src/main/java/PluginReference/PluginBase.java
+@@ -27,6 +27,16 @@ public abstract class PluginBase
+ 
+     private Configuration configuration = null;
+ 
++    // ProjectRails start
++    private PluginLogger logger = null;
++    public PluginLogger getLogger() {
++        if (logger == null) {
++            logger = new PluginLogger(dataFolder.getName());
++        }
++        return logger;
++    }
++    // ProjectRails end
++
+     /**
+      * Internal method. Called by the plugin manager after creating an instance of the plugin.
+      */
+diff --git a/PluginReference/src/main/java/PluginReference/PluginLogger.java b/PluginReference/src/main/java/PluginReference/PluginLogger.java
+new file mode 100644
+index 0000000..4e0e843
+--- /dev/null
++++ b/PluginReference/src/main/java/PluginReference/PluginLogger.java
+@@ -0,0 +1,30 @@
++// ProjectRails start
++package PluginReference;
++
++class PluginLogger {
++    private String name;
++    public PluginLogger(String name) {
++        this.name = name;
++    }
++
++    /**
++     * Prints a info message to the console.
++     * 
++     * If you what to have backwards support use <br>
++     * System.out.println("[YourPluginName]: message");
++     */
++    public void info(Object message) {
++        System.out.println("[" + name + "]: " + message);
++    }
++
++    /**
++     * Prints a error message to the console.
++     * 
++     * If you what to have backwards support use <br>
++     * System.err.println("[YourPluginName]: message");
++     */
++    public void error(Object message) {
++        System.err.println("[" + name + "]: " + message);
++    }
++}
++// ProjectRails end
+\ No newline at end of file
+-- 
+2.13.0.windows.1
+

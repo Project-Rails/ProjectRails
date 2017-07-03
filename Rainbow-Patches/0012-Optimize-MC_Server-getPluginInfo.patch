@@ -1,4 +1,4 @@
-From 7d0bef61f53983ecb93686ff7b5e5b85846af303 Mon Sep 17 00:00:00 2001
+From bcefb7fcf16be87b674ce7325552835e57a7d621 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Mon, 19 Jun 2017 15:38:25 -0400
 Subject: [PATCH] Optimize MC_Server#getPluginInfo

@@ -1,4 +1,4 @@
-From d6d425a0e9c1e7258d9ba3a8efae5e7eb5066c24 Mon Sep 17 00:00:00 2001
+From ae000e85cf06945062e4b8702f0494f33c077a55 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Thu, 29 Jun 2017 11:29:15 -0400
 Subject: [PATCH] use diamond operators
@@ -50,7 +50,7 @@ index 12a08e6..a39e7e2 100644
  	 /** 
       * Get internal block name from ID.
 diff --git a/PluginReference/src/main/java/PluginReference/PluginInfo.java b/PluginReference/src/main/java/PluginReference/PluginInfo.java
-index b5d5188..36a1c83 100644
+index b5d5188..4103132 100644
 --- a/PluginReference/src/main/java/PluginReference/PluginInfo.java
 +++ b/PluginReference/src/main/java/PluginReference/PluginInfo.java
 @@ -32,7 +32,7 @@ public class PluginInfo

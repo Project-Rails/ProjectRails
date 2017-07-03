@@ -1,4 +1,4 @@
-From c0196f389e17d5efbb88624732fb99909d53d2cf Mon Sep 17 00:00:00 2001
+From baf3511e20448a53ee31860deefea035f865d0e8 Mon Sep 17 00:00:00 2001
 From: IsaiahPatton <isaiahpatton1@gmail.com>
 Date: Sat, 17 Jun 2017 14:12:40 -0400
 Subject: [PATCH] Add advanced ban api
