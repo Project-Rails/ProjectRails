@@ -1,0 +1,29 @@
+From 9a158f01ea5b6ee91f5e6fd703356f326b0ed925 Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Mon, 3 Jul 2017 12:42:16 -0400
+Subject: [PATCH] add plugin logger
+
+---
+ PluginReference/src/main/java/PluginReference/PluginBase.java | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/PluginReference/src/main/java/PluginReference/PluginBase.java b/PluginReference/src/main/java/PluginReference/PluginBase.java
+index 33dc911..bb1eadd 100644
+--- a/PluginReference/src/main/java/PluginReference/PluginBase.java
++++ b/PluginReference/src/main/java/PluginReference/PluginBase.java
+@@ -36,6 +36,12 @@ public abstract class PluginBase
+         this.dataFolder = dataFolder;
+     }
+ 
++    // ProjectRails start: add logger.
++    public org.projectrails.PluginLogger getLogger() {
++        return new org.projectrails.PluginLogger(dataFolder.getName());
++    }
++    // ProjectRails end
++
+     /**
+      * Get the configuration file of the plugin. Does not save the default config.
+      * <p>
+-- 
+2.13.0.windows.1
+
