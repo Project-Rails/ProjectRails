@@ -10,6 +10,8 @@ import org.projectrails.warps.WarpConfiguration;
 import org.projectrainbow.ServerWrapper;
 import org.projectrainbow._DiwUtils;
 
+import org.projectrails.commands.CmdRails;
+
 import net.md_5.bungee.config.Configuration;
 
 public class Rails {

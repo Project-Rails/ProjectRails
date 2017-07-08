@@ -1,4 +1,4 @@
-package org.projectrails;
+package org.projectrails.commands;
 
 import PluginReference.ChatColor;
 import PluginReference.MC_Player;

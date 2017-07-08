@@ -1,8 +1,12 @@
-package org.projectrails;
+package org.projectrails.commands;
 
 import java.util.Arrays;
 import java.util.jar.Attributes;
 
+import org.projectrails.Rail_Updater;
+import org.projectrails.Rails;
+
+import PluginReference.ChatColor;
 import PluginReference.MC_Player;
 
 public class CmdRails extends RailCommand {
@@ -17,6 +21,7 @@ public class CmdRails extends RailCommand {
 
             sendMessage(p, "ProjectRainbow version b" + Rails.getRainbowVersion());
             sendMessage(p, "ProjectRails version git-Rails-" + hash);
+            return;
         }
 
         if (args[0].equalsIgnoreCase("updatecheck")) {
@@ -41,6 +46,16 @@ public class CmdRails extends RailCommand {
                 return;
             }
         }
+        
+        if (args[0].equalsIgnoreCase("help")) {
+            sendMessage(p, ChatColor.AQUA + "Command Help:");
+            sendMessage(p, ChatColor.GOLD + "/rails help " + ChatColor.ITALIC + "Displayes help for commands.");
+            sendMessage(p, ChatColor.GOLD + "/rails updatecheck " + ChatColor.ITALIC + "Checks for updates.");
+            sendMessage(p, ChatColor.GOLD + "/rails upstream " + ChatColor.ITALIC + "Checks for Rainbow updates.");
+            return;
+        }
+
+        sendMessage(p, ChatColor.RED + "Usage: /rails help");
     }
 
     @Override
