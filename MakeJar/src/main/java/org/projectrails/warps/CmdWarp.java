@@ -1,7 +1,7 @@
 package org.projectrails.warps;
 
-import org.projectrails.CommandInfo;
-import org.projectrails.RailCommand;
+import org.projectrails.commands.CommandInfo;
+import org.projectrails.commands.RailCommand;
 
 import PluginReference.ChatColor;
 import PluginReference.MC_Player;
