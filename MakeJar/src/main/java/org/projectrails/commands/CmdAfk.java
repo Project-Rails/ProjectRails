@@ -2,8 +2,8 @@ package org.projectrails.commands;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import org.projectrails.CommandInfo;
-import org.projectrails.RailCommand;
+import org.projectrails.commands.CommandInfo;
+import org.projectrails.commands.RailCommand;
 import org.projectrails.Rails;
 import org.projectrainbow.ServerWrapper;
 
