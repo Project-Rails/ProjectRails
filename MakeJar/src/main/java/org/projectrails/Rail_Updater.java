@@ -15,7 +15,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 /**
- * Updater for Project Rails
+ * Project Rails updater
  */
 public class Rail_Updater {
     private static final String BRANCH = "master";
@@ -23,29 +23,22 @@ public class Rail_Updater {
     public static int check() {
         Attributes a = getManifest(Rail_Updater.class).getMainAttributes();
         String hash = a.getValue("GitCommitHash");
-        if (hash.endsWith("-dirty")) {
-            hash = hash.replace("-dirty", "");
-        }
+        if (hash.endsWith("-dirty")) hash = hash.replace("-dirty", "");
 
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL(
-                    "https://api.github.com/repos/Project-Rails/ProjectRails/compare/" + BRANCH + "..." + hash)
-                            .openConnection();
+                    "https://api.github.com/repos/Project-Rails/ProjectRails/compare/" + BRANCH + "..." + hash).openConnection();
             connection.connect();
-            if (connection.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND) {
-                return -2; // Unknown commit
-            }
+
+            if (connection.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND) return -2; // Unknown commit
+
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
             JsonObject obj = (JsonObject) new JsonParser().parse(reader);
             String status = obj.get("status").getAsString();
 
-            if (status.equalsIgnoreCase("identical")) {
-                return 0;
-            }
+            if (status.equalsIgnoreCase("identical")) return 0;
 
-            if (status.equalsIgnoreCase("behind")) {
-                return obj.get("behind_by").getAsInt();
-            }
+            if (status.equalsIgnoreCase("behind")) return obj.get("behind_by").getAsInt();
 
             return -1;
         } catch (IOException e) {
@@ -76,8 +69,6 @@ public class Rail_Updater {
             } catch (NumberFormatException e) {
                 return -1;
             }
-        } else {
-            return -2;
-        }
+        } else return -2;
     }
 }

@@ -19,7 +19,7 @@ public class CmdDelwarp extends RailCommand {
 
     @Override
     public boolean hasPermissionToUse(MC_Player p) {
-        return super.hasPermissionToUse(p) || p.hasPermission("rainbow.delwarp") || p.hasPermission("rails.delwarp");
+        return super.hasPermissionToUse(p) || p.hasPermission("rainbow.delwarp");
     }
 
     @Override

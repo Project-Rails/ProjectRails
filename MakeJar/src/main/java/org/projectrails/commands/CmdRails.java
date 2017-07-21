@@ -46,7 +46,7 @@ public class CmdRails extends RailCommand {
                 return;
             }
         }
-        
+
         if (args[0].equalsIgnoreCase("help")) {
             sendMessage(p, ChatColor.AQUA + "Command Help:");
             sendMessage(p, ChatColor.GOLD + "/rails help " + ChatColor.ITALIC + "Displayes help for commands.");
@@ -60,10 +60,6 @@ public class CmdRails extends RailCommand {
 
     @Override
     public CommandInfo getInfo() {
-        CommandInfo info = new CommandInfo();
-        info.name = "rails";
-        info.aliases = Arrays.asList("projectrails");
-        info.usage = "Rails main command.";
-        return info;
+        return new CommandInfo("rails", "Project-Rails main command.", Arrays.asList("projectrails"));
     }
 }

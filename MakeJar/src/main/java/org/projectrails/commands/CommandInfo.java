@@ -14,7 +14,7 @@ public class CommandInfo {
         this.name = name;
         this.usage = usage;
     }
-    
+
     public CommandInfo(String name, String usage, List<String> aliases) {
         this.name = name;
         this.usage = usage;

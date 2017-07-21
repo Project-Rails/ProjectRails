@@ -26,8 +26,7 @@ public abstract class RailCommand implements PluginReference.MC_Command {
 
     @Override
     public String getHelpLine(MC_Player p) {
-        return ChatColor.AQUA + getCommandName() + ChatColor.WHITE + " --- "
-                + ChatColor.translateAlternateColorCodes('&', getInfo().usage);
+        return ChatColor.AQUA + getCommandName() + ChatColor.WHITE + " --- " + ChatColor.translateAlternateColorCodes('&', getInfo().usage);
     }
 
     /**
@@ -35,11 +34,8 @@ public abstract class RailCommand implements PluginReference.MC_Command {
      * sending messages to the console/server log.
      */
     public void sendMessage(MC_Player p, String msg) {
-        if (p == null) {
-            System.out.println(msg);
-        } else {
-            p.sendMessage(msg);
-        }
+        if (p == null) System.out.println(msg);
+        else p.sendMessage(msg);
     }
 
     public abstract CommandInfo getInfo();

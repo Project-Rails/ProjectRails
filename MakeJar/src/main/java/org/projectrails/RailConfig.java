@@ -52,9 +52,7 @@ public class RailConfig {
             defaultConfig = ConfigurationProvider.getProvider(YamlConfiguration.class).load(defaultConfigStream);
         }
 
-        if (!configFile.exists()) {
-            return (configuration = defaultConfig);
-        }
+        if (!configFile.exists()) return (configuration = defaultConfig);
 
         try {
             return (configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(configFile,
@@ -74,9 +72,8 @@ public class RailConfig {
     }
 
     public final void addDefault(String path, Object value) {
-        if (configuration == null) {
-            reloadConfig();
-        }
+        if (configuration == null) reloadConfig();
+
         if (!configuration.contains(path)) {
             configuration.set(path, value);
             saveConfig();
