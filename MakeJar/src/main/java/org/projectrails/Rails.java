@@ -16,7 +16,7 @@ import net.md_5.bungee.config.Configuration;
 
 public class Rails {
     private static RailConfig config = new RailConfig("projectrails.yml");
-    private static int upstream = 172; // Change when updating upstream.
+    private static int upstream = 173; // Change when updating upstream.
     private static boolean useWarpsV2 = false;
     public static boolean displaynameafk = true;
 
