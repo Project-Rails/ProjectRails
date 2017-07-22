@@ -2,15 +2,18 @@ package org.projectrails;
 
 import java.util.jar.Attributes;
 
+import org.projectrails.commands.CmdRails;
 import org.projectrails.commands.CmdAfk;
+import org.projectrails.commands.CmdClearlag;
+import org.projectrails.commands.CmdLag;
+
 import org.projectrails.warps.CmdDelwarp;
 import org.projectrails.warps.CmdSetwarp;
 import org.projectrails.warps.CmdWarp;
 import org.projectrails.warps.WarpConfiguration;
+
 import org.projectrainbow.ServerWrapper;
 import org.projectrainbow._DiwUtils;
-
-import org.projectrails.commands.CmdRails;
 
 import net.md_5.bungee.config.Configuration;
 
@@ -19,6 +22,7 @@ public class Rails {
     private static int upstream = 173; // Change when updating upstream.
     private static boolean useWarpsV2 = false;
     public static boolean displaynameafk = true;
+    public static boolean broadcastclearlag = true;
 
     /**
      * ProjectRails startup. Runs in {@link _DiwUtils#Startup()}
@@ -42,6 +46,9 @@ public class Rails {
         // Config values.
         config.addDefault("commands.afk.enable", true);
         config.addDefault("commands.afk.useDisplayNames", true);
+        config.addDefault("commands.laginfo.enable", true);
+        config.addDefault("commands.clearlag.enable", true);
+        config.addDefault("commands.clearlag.broadcast", true);
         config.addDefault("files.use-new-warps-config", true);
         config.saveConfig();
         config.reloadConfig();
@@ -49,6 +56,11 @@ public class Rails {
         // AFK command.
         displaynameafk = config.getConfig().getBoolean("commands.afk.useDisplayNames");
         if (config.getConfig().getBoolean("commands.afk.enable")) registerCommand(new CmdAfk());
+
+        // Lag commands
+        if (config.getConfig().getBoolean("commands.laginfo.enable")) registerCommand(new CmdLag());
+        if (config.getConfig().getBoolean("commands.clearlag.enable")) registerCommand(new CmdClearlag());
+        broadcastclearlag = config.getConfig().getBoolean("commands.clearlag.broadcast");
 
         // Register commands.
         registerCommand(new CmdRails());
