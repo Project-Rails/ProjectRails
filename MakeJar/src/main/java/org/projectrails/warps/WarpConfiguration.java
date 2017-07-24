@@ -53,8 +53,8 @@ public class WarpConfiguration {
         p.teleport(loc);
     }
 
-    public static void tpEntityToWarp(MC_Entity e, String warpname) {
-        warpname = warpname.toLowerCase();
+    public static void tpEntityToWarp(MC_Entity e, String warp) {
+        String warpname = warp.toLowerCase();
         double x = warps.getConfig().getDouble("warps." + warpname + ".x");
         double y = warps.getConfig().getDouble("warps." + warpname + ".y");
         double z = warps.getConfig().getDouble("warps." + warpname + ".z");
@@ -66,8 +66,8 @@ public class WarpConfiguration {
         e.teleport(loc);
     }
 
-    public static void createWarp(MC_Location loc, String warpname) {
-        warpname = warpname.toLowerCase();
+    public static void createWarp(MC_Location loc, String warp) {
+        String warpname = warp.toLowerCase();
         warps.getConfig().set("warps." + warpname + ".x", loc.x);
         warps.getConfig().set("warps." + warpname + ".y", (loc.y + 1));
         warps.getConfig().set("warps." + warpname + ".z", loc.z);
@@ -78,8 +78,8 @@ public class WarpConfiguration {
         warps.reloadConfig();
     }
 
-    public static void removeWarp(String warpname) {
-        warpname = warpname.toLowerCase();
+    public static void removeWarp(String warp) {
+        String warpname = warp.toLowerCase();
         warps.getConfig().set("warps." + warpname, null);
         warps.saveConfig();
         warps.reloadConfig();
