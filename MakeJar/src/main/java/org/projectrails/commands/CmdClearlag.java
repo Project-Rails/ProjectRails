@@ -28,7 +28,6 @@ public class CmdClearlag extends RailCommand {
         } else {
             sendMessage(sender, ChatColor.GOLD + "Removed " + ChatColor.GREEN + i + ChatColor.GOLD +" ground items.");
         }
-        return;
     }
 
     @Override
