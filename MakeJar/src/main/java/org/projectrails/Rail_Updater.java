@@ -56,7 +56,9 @@ public class Rail_Updater {
             InputStream input = new URL(archivePath + "/META-INF/MANIFEST.MF").openStream();
             return new Manifest(input);
         } catch (Exception e) {
-            throw new RuntimeException("Loading MANIFEST for class " + clz + " failed!", e);
+            e.printStackTrace();
+            System.out.println("Loading MANIFEST for class " + clz + " failed! See above error.");
+            return null;
         }
     }
 
