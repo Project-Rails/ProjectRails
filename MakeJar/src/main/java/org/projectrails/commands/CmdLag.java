@@ -28,6 +28,9 @@ public class CmdLag extends RailCommand {
 
     private String formatTime(String time) {
         String[] strs = time.split(":");
+        if (strs[0].startsWith("0")) {
+            strs[0] = strs[0].substring(1);
+        }
         String hours = strs[0] + " Hours, ";
         String min = strs[1] + " Minutes, ";
         String sec = strs[2].substring(0, strs[2].indexOf(".")) + " Seconds.";
