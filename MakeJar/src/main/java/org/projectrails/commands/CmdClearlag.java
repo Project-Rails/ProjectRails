@@ -17,7 +17,9 @@ public class CmdClearlag extends RailCommand {
         int i = 0;
         for (MC_World w : sender.getServer().getWorlds()) {
             for (MC_Entity e : w.getEntities()) {
-                if ((e.getType() == MC_EntityType.ITEM || e.getType() == MC_EntityType.PRIMED_TNT) && !e.hasCustomName() && !e.isInvisible()) {
+                if ((e.getType() == MC_EntityType.ITEM || e.getType() == MC_EntityType.PRIMED_TNT 
+                        || e.getType() == MC_EntityType.THROWN_EGG || e.getType() == MC_EntityType.WITHER_SKULL ||
+                        e.getType() == MC_EntityType.ARROW) && !e.hasCustomName() && !e.isInvisible()) {
                     e.removeEntity();
                     i++;
                 }
