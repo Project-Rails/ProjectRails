@@ -1,0 +1,44 @@
+From 5160d41bdf5c9109d6d516c714c81aef5f0f1b1b Mon Sep 17 00:00:00 2001
+From: Isaiah <IsaiahPatton@users.noreply.github.com>
+Date: Fri, 7 Jul 2017 09:28:16 -0400
+Subject: [PATCH] Optimize _Jantitor
+
+---
+ rainbow/src/main/java/org/projectrainbow/_Janitor.java | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/_Janitor.java b/rainbow/src/main/java/org/projectrainbow/_Janitor.java
+index 21785c4..fa47e71 100644
+--- a/rainbow/src/main/java/org/projectrainbow/_Janitor.java
++++ b/rainbow/src/main/java/org/projectrainbow/_Janitor.java
+@@ -24,9 +24,7 @@ public class _Janitor {
+         int nRemoved = 0;
+         WorldServer[] worlds = _DiwUtils.getMinecraftServer().worlds;
+ 
+-        for (int i = 0; i < worlds.length; ++i) {
+-            WorldServer world = worlds[i];
+-
++        for (WorldServer world : worlds) {
+             for (Entity ent : world.loadedEntityList) {
+                 String entClassName = EntityList.getEntityString(ent);
+                 String mobName = entClassName;
+@@ -88,13 +86,13 @@ public class _Janitor {
+ 
+                     boolean shouldRemove = false;
+                     if (cleanTarget != null) {
+-                        for (int idx = 0; idx < cleanTarget.length; ++idx) {
+-                            if (cleanTarget[idx].equalsIgnoreCase(entClassName)) {
++                        for (String iterator : cleanTarget) {
++                            if (iterator.equalsIgnoreCase(entClassName)) {
+                                 shouldRemove = true;
+                                 break;
+                             }
+ 
+-                            if (cleanTarget[idx].equalsIgnoreCase(mobName) || cleanTarget[idx].equals("*") || mobName.startsWith("item.") && cleanTarget[idx].equalsIgnoreCase("item")) {
++                            if (iterator.equalsIgnoreCase(mobName) || iterator.equals("*") || mobName.startsWith("item.") && iterator.equalsIgnoreCase("item")) {
+                                 shouldRemove = true;
+                                 break;
+                             }
+-- 
+2.13.0.windows.1
+

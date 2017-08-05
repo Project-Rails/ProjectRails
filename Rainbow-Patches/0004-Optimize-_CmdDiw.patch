@@ -1,0 +1,35 @@
+From 18e4853b79d8214948f5babf6e925754c340355d Mon Sep 17 00:00:00 2001
+From: Isaiah <IsaiahPatton@users.noreply.github.com>
+Date: Fri, 7 Jul 2017 09:33:05 -0400
+Subject: [PATCH] Optimize _CmdDiw
+
+---
+ rainbow/src/main/java/org/projectrainbow/commands/_CmdDiw.java | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/commands/_CmdDiw.java b/rainbow/src/main/java/org/projectrainbow/commands/_CmdDiw.java
+index 571784a..3de2b6b 100644
+--- a/rainbow/src/main/java/org/projectrainbow/commands/_CmdDiw.java
++++ b/rainbow/src/main/java/org/projectrainbow/commands/_CmdDiw.java
+@@ -116,8 +116,7 @@ public class _CmdDiw implements MC_Command {
+         System.out.println("[Script] Executing File: " + fname);
+         File file = new File(fname);
+ 
+-        try {
+-            BufferedReader br = new BufferedReader(new FileReader(file));
++        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+             ICommandSender sender = _DiwUtils.getMinecraftServer();
+             if (plr != null) {
+                 sender = plr;
+@@ -155,8 +154,6 @@ public class _CmdDiw implements MC_Command {
+                     }
+                 }
+             }
+-
+-            br.close();
+         } catch (Exception var16) {
+             var16.printStackTrace();
+         }
+-- 
+2.13.0.windows.1
+

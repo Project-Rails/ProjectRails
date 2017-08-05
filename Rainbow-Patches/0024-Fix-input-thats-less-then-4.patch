@@ -1,0 +1,25 @@
+From a480fb4a035aebc22b404bc2a2a7ef2d49ae1945 Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Sat, 5 Aug 2017 11:52:57 -0400
+Subject: [PATCH] Fix input thats less then 4
+
+---
+ rainbow/src/main/java/org/projectrainbow/Hooks.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/Hooks.java b/rainbow/src/main/java/org/projectrainbow/Hooks.java
+index f04c1b7..b15a8a9 100644
+--- a/rainbow/src/main/java/org/projectrainbow/Hooks.java
++++ b/rainbow/src/main/java/org/projectrainbow/Hooks.java
+@@ -127,7 +127,7 @@ public class Hooks {
+     }
+ 
+     public static void onPlayerInput(MC_Player plr, String msg, MC_EventInfo ei) {
+-        if (!msg.equalsIgnoreCase("/afk") && !msg.substring(0, 4).equalsIgnoreCase("/afk")) org.projectrails.commands.CmdAfk.setAFK(plr, false); // ProjectRails
++        if (msg.length() < 4 || !msg.equalsIgnoreCase("/afk") && !msg.substring(0, 4).equalsIgnoreCase("/afk")) org.projectrails.commands.CmdAfk.setAFK(plr, false); // ProjectRails
+         for (PluginInfo plugin : _DiwUtils.pluginManager.plugins) {
+             try {
+                 plugin.ref.onPlayerInput(plr, msg, ei);
+-- 
+2.13.0.windows.1
+

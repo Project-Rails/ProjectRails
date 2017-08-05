@@ -1,0 +1,79 @@
+From f7ad22e82d72b67caf7f810909c3b961e52e8640 Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Sat, 1 Jul 2017 10:50:58 -0400
+Subject: [PATCH] add afk command events
+
+---
+ rainbow/src/main/java/org/projectrainbow/Hooks.java | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/Hooks.java b/rainbow/src/main/java/org/projectrainbow/Hooks.java
+index b86de7f..f04c1b7 100644
+--- a/rainbow/src/main/java/org/projectrainbow/Hooks.java
++++ b/rainbow/src/main/java/org/projectrainbow/Hooks.java
+@@ -65,6 +65,7 @@ public class Hooks {
+     }
+ 
+     public static void onInteracted(MC_Player plr, MC_Location loc, MC_ItemStack isHandItem) {
++        org.projectrails.commands.CmdAfk.setAFK(plr, false); // ProjectRails
+         for (PluginInfo plugin : _DiwUtils.pluginManager.plugins) {
+             try {
+                 plugin.ref.onInteracted(plr, loc, isHandItem);
+@@ -95,6 +96,7 @@ public class Hooks {
+     }
+ 
+     public static void onBlockBroke(MC_Player plr, MC_Location loc, MC_Block blk) {
++        org.projectrails.commands.CmdAfk.setAFK(plr, false); // ProjectRails
+         for (PluginInfo plugin : _DiwUtils.pluginManager.plugins) {
+             try {
+                 plugin.ref.onBlockBroke(plr, loc, blk);
+@@ -125,6 +127,7 @@ public class Hooks {
+     }
+ 
+     public static void onPlayerInput(MC_Player plr, String msg, MC_EventInfo ei) {
++        if (!msg.equalsIgnoreCase("/afk") && !msg.substring(0, 4).equalsIgnoreCase("/afk")) org.projectrails.commands.CmdAfk.setAFK(plr, false); // ProjectRails
+         for (PluginInfo plugin : _DiwUtils.pluginManager.plugins) {
+             try {
+                 plugin.ref.onPlayerInput(plr, msg, ei);
+@@ -155,6 +158,7 @@ public class Hooks {
+     }
+ 
+     public static void onAttemptPlaceOrInteract(MC_Player plr, MC_Location loc, MC_DirectionNESWUD dir, MC_Hand hand, MC_EventInfo ei) {
++        org.projectrails.commands.CmdAfk.setAFK(plr, false); // ProjectRails
+         for (PluginInfo plugin : _DiwUtils.pluginManager.plugins) {
+             try {
+                 if (hand == MC_Hand.MAIN_HAND) {
+@@ -220,6 +224,7 @@ public class Hooks {
+     }
+ 
+     public static void onAttemptPlayerTeleport(MC_Player plr, MC_Location loc, MC_EventInfo ei) {
++        org.projectrails.commands.CmdAfk.setAFK(plr, false); // ProjectRails
+         for (PluginInfo plugin : _DiwUtils.pluginManager.plugins) {
+             try {
+                 plugin.ref.onAttemptPlayerTeleport(plr, loc, ei);
+@@ -260,6 +265,14 @@ public class Hooks {
+     }
+ 
+     public static void onAttemptEntityDamage(MC_Entity ent, MC_DamageType dmgType, double amt, MC_EventInfo ei) {
++        // ProjectRails: start
++        if (ent.getType() == MC_EntityType.PLAYER) {
++            if (org.projectrails.commands.CmdAfk.isAFK((MC_Player) ent)) {
++                ei.isCancelled = true;
++                return;
++            }
++        }
++        // ProjectRais: end
+         for (PluginInfo plugin : _DiwUtils.pluginManager.plugins) {
+             try {
+                 plugin.ref.onAttemptEntityDamage(ent, dmgType, amt, ei);
+@@ -310,6 +323,7 @@ public class Hooks {
+     }
+ 
+     public static void onAttemptPlayerMove(MC_Player plr, MC_Location locFrom, MC_Location locTo, MC_EventInfo ei) {
++        if (!(locFrom.getBlockX() == locTo.getBlockX() && locFrom.getBlockY() == locTo.getBlockY() && locFrom.getBlockZ() == locTo.getBlockZ())) org.projectrails.commands.CmdAfk.setAFK(plr, false); // ProjectRails
+         for (PluginInfo plugin : _DiwUtils.pluginManager.plugins) {
+             try {
+                 plugin.ref.onAttemptPlayerMove(plr, locFrom, locTo, ei);
+-- 
+2.13.0.windows.1
+

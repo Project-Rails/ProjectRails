@@ -1,0 +1,24 @@
+From 3c0e0d8ffd63abef136fdad8d86996ad2f23ed6b Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Sun, 25 Jun 2017 09:30:50 -0400
+Subject: [PATCH] fix memory leak
+
+---
+ rainbow/src/main/java/org/projectrainbow/_DiwUtils.java | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java b/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
+index 423ca17..0224fd5 100644
+--- a/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
++++ b/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
+@@ -485,6 +485,7 @@ public class _DiwUtils {
+                         g_removedCommand.add(line.toLowerCase());
+                     }
+                 }
++                br.close(); // ProjectRails: fix memory leak 
+             }
+         } catch (Exception var5) {
+             var5.printStackTrace();
+-- 
+2.13.0.windows.1
+

@@ -1,0 +1,73 @@
+From 62d1c02b813cd989d595e167e960534b8d9f8e4d Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Sat, 17 Jun 2017 14:12:40 -0400
+Subject: [PATCH] Add advanced ban api
+
+---
+ .../src/main/java/PluginReference/MC_Server.java   | 24 ++++++++++++++++++++++
+ .../java/org/projectrainbow/ServerWrapper.java     | 17 +++++++++++++++
+ 2 files changed, 41 insertions(+)
+
+diff --git a/PluginReference/src/main/java/PluginReference/MC_Server.java b/PluginReference/src/main/java/PluginReference/MC_Server.java
+index 680309f..395e6d0 100644
+--- a/PluginReference/src/main/java/PluginReference/MC_Server.java
++++ b/PluginReference/src/main/java/PluginReference/MC_Server.java
+@@ -478,5 +478,29 @@ public interface MC_Server {
+      */
+     void setViewDistance(int newValue);
+     // ProjectRails end.
++
++    // ProjectRails start.
++    /**
++     * Adds a ban to the banlist.
++     * Banning the player.
++     * @param plr The player to ban
++     * @param reason The reason for banning.
++     */
++    void addBan(MC_Player plr, String reason);
++    
++    /**
++     * Adds a ban to the banlist.
++     * Banning the player.
++     * @param plr The player to ban
++     * @param reason The reason for banning.
++     * @param endDate The date when the ban expires.
++     */
++    void addBan(MC_Player plr, String reason, java.util.Date endDate);
++
++    /**
++     * Unbans a player
++     */
++    void removeBan(MC_Player plr);
++    // ProjectRails end
+ }
+ 
+diff --git a/rainbow/src/main/java/org/projectrainbow/ServerWrapper.java b/rainbow/src/main/java/org/projectrainbow/ServerWrapper.java
+index d42ca2e..1f994ab 100755
+--- a/rainbow/src/main/java/org/projectrainbow/ServerWrapper.java
++++ b/rainbow/src/main/java/org/projectrainbow/ServerWrapper.java
+@@ -534,4 +534,21 @@ public class ServerWrapper implements MC_Server {
+         _DiwUtils.getMinecraftServer().getPlayerList().setViewDistance(newValue);
+     }
+     // ProjectRails end
++
++    // ProjectRails start
++    @Override
++    public void addBan(MC_Player plr, String reason) {
++        _DiwUtils.getMinecraftServer().getPlayerList().getBannedPlayers().addEntry(new net.minecraft.server.management.UserListBansEntry(_DiwUtils.getMinecraftServer().getPlayerList().getPlayerByUUID(plr.getUUID()).getGameProfile(), null, null, null, reason));
++    }
++
++    @Override
++    public void addBan(MC_Player plr, String reason, java.util.Date endDate) {
++        _DiwUtils.getMinecraftServer().getPlayerList().getBannedPlayers().addEntry(new net.minecraft.server.management.UserListBansEntry(_DiwUtils.getMinecraftServer().getPlayerList().getPlayerByUUID(plr.getUUID()).getGameProfile(), null, null, endDate, reason));
++    }
++
++    @Override
++    public void removeBan(MC_Player plr) {
++        plr.setBanned(false);
++    }
++    // ProjectRails end
+ }
+-- 
+2.13.0.windows.1
+
