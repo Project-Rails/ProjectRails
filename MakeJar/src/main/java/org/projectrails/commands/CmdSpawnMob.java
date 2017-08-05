@@ -23,7 +23,7 @@ public class CmdSpawnMob extends RailCommand {
             }
             MC_EntityType e = MC_EntityType.PIG;
             try {
-                e = MC_EntityType.valueOf(args[1]);
+                e = MC_EntityType.valueOf(args[0]);
             } catch (Exception ex) {
                 plr.sendMessage(ChatColor.RED + "Unknown entity type.");
             }
