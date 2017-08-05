@@ -8,19 +8,13 @@ import org.projectrails.Rails;
 
 import PluginReference.ChatColor;
 import PluginReference.MC_Player;
+import PluginReference.RainbowUtils;
 
 public class CmdRails extends RailCommand {
     @Override
     public void handleCommand(MC_Player p, String[] args) {
         if (args.length == 0) {
-            Attributes a = Rail_Updater.getManifest(Rail_Updater.class).getMainAttributes();
-            String hash = a.getValue("GitCommitHash");
-            if (hash.endsWith("-dirty")) {
-                hash = hash.replace("-dirty", "");
-            }
-
-            sendMessage(p, "ProjectRainbow version b" + Rails.getRainbowVersion());
-            sendMessage(p, "ProjectRails version git-Rails-" + hash);
+            sendMessage(p, ChatColor.RED + "Use /rails help to see all sub commands.");
             return;
         }
 
@@ -47,11 +41,38 @@ public class CmdRails extends RailCommand {
             }
         }
 
+        if (args[0].equalsIgnoreCase("info")) {
+            Attributes a = Rail_Updater.getManifest(Rail_Updater.class).getMainAttributes();
+            sendMessage(p, "ProjectRainbow version b" + Rails.getRainbowVersion());
+            String hash = a.getValue("GitCommitHash");
+            if (hash.endsWith("-dirty")) {
+                sendMessage(p, "ProjectRails version: git-Rails-custom-" + hash);
+                return;
+            }
+            sendMessage(p, "ProjectRails version git-Rails-" + hash);
+            return;
+        }
+
+        if (args[0].equalsIgnoreCase("viewdistance")) {
+            if (args.length == 1) {
+                sendMessage(p, ChatColor.RED + "Usage: /rails viewdistance <number>");
+                return;
+            } else {
+                try {
+                    RainbowUtils.getServer().setViewDistance(Integer.valueOf(args[1]));
+                } catch (NumberFormatException e) {
+                    sendMessage(p, ChatColor.RED + args[1] + " is not a number.");
+                }
+            }
+            return;
+        }
+
         if (args[0].equalsIgnoreCase("help")) {
             sendMessage(p, ChatColor.AQUA + "Command Help:");
             sendMessage(p, ChatColor.GOLD + "/rails help " + ChatColor.ITALIC + "Displayes help for commands.");
             sendMessage(p, ChatColor.GOLD + "/rails updatecheck " + ChatColor.ITALIC + "Checks for updates.");
             sendMessage(p, ChatColor.GOLD + "/rails upstream " + ChatColor.ITALIC + "Checks for Rainbow updates.");
+            sendMessage(p, ChatColor.GOLD + "/rails viewdistance " +  ChatColor.ITALIC + "Sets the server's view distance");
             return;
         }
 
