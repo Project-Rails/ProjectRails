@@ -3,6 +3,7 @@ package org.projectrails;
 import java.util.jar.Attributes;
 
 import org.projectrails.commands.CmdRails;
+import org.projectrails.commands.CmdSpawnMob;
 import org.projectrails.commands.CmdAfk;
 import org.projectrails.commands.CmdClearlag;
 import org.projectrails.commands.CmdLag;
@@ -49,18 +50,20 @@ public class Rails {
         config.addDefault("commands.laginfo.enable", true);
         config.addDefault("commands.clearlag.enable", true);
         config.addDefault("commands.clearlag.broadcast", true);
+        config.addDefault("commands.spawnmob.enable", true);
         config.addDefault("files.use-new-warps-config", true);
         config.saveConfig();
         config.reloadConfig();
-        
-        // AFK command.
+
+        // commands.
         displaynameafk = config.getConfig().getBoolean("commands.afk.useDisplayNames");
         if (config.getConfig().getBoolean("commands.afk.enable")) registerCommand(new CmdAfk());
 
-        // Lag commands
         if (config.getConfig().getBoolean("commands.laginfo.enable")) registerCommand(new CmdLag());
         if (config.getConfig().getBoolean("commands.clearlag.enable")) registerCommand(new CmdClearlag());
         broadcastclearlag = config.getConfig().getBoolean("commands.clearlag.broadcast");
+        
+        if (config.getConfig().getBoolean("commands.spawnmob.enable")) registerCommand(new CmdSpawnMob());
 
         // Register commands.
         registerCommand(new CmdRails());
