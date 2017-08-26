@@ -1,0 +1,112 @@
+From f96e2617ec12fce5331be1118584bfe1237c258b Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Fri, 25 Aug 2017 23:20:27 -0400
+Subject: [PATCH] warp now works with both systems!
+
+---
+ .../main/java/org/projectrainbow/_WarpManager.java | 40 +++++++---------------
+ 1 file changed, 13 insertions(+), 27 deletions(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/_WarpManager.java b/rainbow/src/main/java/org/projectrainbow/_WarpManager.java
+index 4005564..2bb904a 100755
+--- a/rainbow/src/main/java/org/projectrainbow/_WarpManager.java
++++ b/rainbow/src/main/java/org/projectrainbow/_WarpManager.java
+@@ -1,6 +1,5 @@
+ package org.projectrainbow;
+ 
+-
+ import PluginReference.ChatColor;
+ import com.google.common.io.Files;
+ import joebkt._SerializableLocation;
+@@ -23,17 +22,13 @@ import org.projectrails.Rails;
+ 
+ public class _WarpManager {
+ 
+-    public static Map<String, _SerializableLocation> adminWarps = new ConcurrentHashMap();
++    public static Map<String, _SerializableLocation> adminWarps = new ConcurrentHashMap<>();
+     private static String Warp_FileName = "Warps.dat";
+ 
+     public _WarpManager() {}
+ 
+     public static void SaveWarps() {
+-        // ProjectRails start
+-        if (Rails.useVersion2Warps()) {
+-            WarpConfiguration.save();
+-        } else
+-        // ProjectRails end
++        if (Rails.useVersion2Warps()) WarpConfiguration.save(); // ProjectRails
+         try {
+             long exc = System.currentTimeMillis();
+             File file = new File(_DiwUtils.RainbowDataDirectory + Warp_FileName);
+@@ -59,23 +54,18 @@ public class _WarpManager {
+ 
+     }
+ 
++    @SuppressWarnings("unchecked")
+     public static void LoadWarps() {
+-        // ProjectRails start
+-        if (Rails.useVersion2Warps()) {
+-            WarpConfiguration.load();
+-        } else
+-        // ProjectRails end
++        if (Rails.useVersion2Warps()) WarpConfiguration.load(); // ProjectRails
+         try {
+             File file = new File(_DiwUtils.RainbowDataDirectory + Warp_FileName);
+             File oldFile = new File(Warp_FileName);
+ 
+-            if (oldFile.exists()) {
+-                Files.move(oldFile, file);
+-            }
++            if (oldFile.exists()) Files.move(oldFile, file); // ProjectRails minify
+ 
+             if (!file.exists()) {
+                 System.out.println("Starting New Admin Warps: " + Warp_FileName);
+-                adminWarps = new ConcurrentHashMap();
++                adminWarps = new ConcurrentHashMap<String, _SerializableLocation>();
+                 return;
+             }
+ 
+@@ -83,33 +73,29 @@ public class _WarpManager {
+             ObjectInputStream s = new ObjectInputStream(
+                     new BufferedInputStream(f));
+ 
+-            adminWarps = (ConcurrentHashMap) s.readObject();
++            adminWarps = (ConcurrentHashMap<String, _SerializableLocation>) s.readObject();
+             s.close();
+         } catch (Throwable var4) {
+             var4.printStackTrace();
+             System.out.println("Starting New Admin Warps: " + Warp_FileName);
+-            adminWarps = new ConcurrentHashMap();
++            adminWarps = new ConcurrentHashMap<String, _SerializableLocation>();
+         }
+ 
+     }
+ 
+     public static String GetActualWarpName(String name) {
+         // ProjectRails start
+-        if (Rails.useVersion2Warps()) {
++        if (!(WarpConfiguration.warps.getConfig().getSection("warps." + name.toLowerCase()) == null)) {
+             WarpConfiguration.reload();
+-            if (WarpConfiguration.warps.getConfig().getSection("warps." + name.toLowerCase()) == null) {
+-                return null;
+-            }
++
+             return name;
+         } else { // ProjectRails end
+-            Iterator var2 = adminWarps.keySet().iterator();
++            Iterator<String> var2 = adminWarps.keySet().iterator();
+ 
+             while (var2.hasNext()) {
+-                String key = (String) var2.next();
++                String key = var2.next();
+ 
+-                if (key.equalsIgnoreCase(name)) {
+-                    return key;
+-                }
++                if (key.equalsIgnoreCase(name)) return key;
+             }
+         } // ProjectRails
+         return null;
+-- 
+2.13.0.windows.1
+
