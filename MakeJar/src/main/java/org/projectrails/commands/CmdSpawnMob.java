@@ -1,10 +1,13 @@
 package org.projectrails.commands;
 
+import java.util.ArrayList;
+
 import org.apache.commons.lang3.StringUtils;
 
 import PluginReference.ChatColor;
 import PluginReference.MC_EntityType;
 import PluginReference.MC_Player;
+import PluginReference.RainbowUtils;
 
 public class CmdSpawnMob extends RailCommand {
 
@@ -15,12 +18,11 @@ public class CmdSpawnMob extends RailCommand {
             return;
         }
         if (args.length <= 0) {
-            plr.sendMessage(ChatColor.GOLD + "Mobs: " + ChatColor.GREEN + StringUtils.join(MC_EntityType.values(), ChatColor.GOLD + "," + ChatColor.GREEN));
+            plr.sendMessage(ChatColor.GOLD + "Mobs: " + ChatColor.GREEN + StringUtils.join(getSpawnable(), ChatColor.GOLD + ", " + ChatColor.GREEN));
         } else {
             int amount = 1;
-            if (args.length > 1) {
-                amount = Integer.valueOf(args[1]);
-            }
+            if (args.length > 1) amount = Integer.valueOf(args[1]);
+
             MC_EntityType e = MC_EntityType.PIG;
             try {
                 e = MC_EntityType.valueOf(args[0].toUpperCase());
@@ -31,8 +33,16 @@ public class CmdSpawnMob extends RailCommand {
                 plr.getWorld().spawnEntity(e, plr.getLocation(), "");
                 z++;
             }
-            plr.sendMessage("Summoning entity: " + e);
+            plr.sendMessage(ChatColor.GREEN + "Summoning entity: " + e);
         }
+    }
+    
+    private ArrayList<MC_EntityType> getSpawnable() {
+        ArrayList<MC_EntityType> list = new ArrayList<>();
+        for (MC_EntityType e : MC_EntityType.values()) {
+            if (!(e == MC_EntityType.PLAYER || e == MC_EntityType.ITEM || e == MC_EntityType.PAINTING)) list.add(e);
+        }
+        return list;
     }
 
     @Override
