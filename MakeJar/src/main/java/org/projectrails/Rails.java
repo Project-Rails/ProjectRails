@@ -2,20 +2,18 @@ package org.projectrails;
 
 import java.util.jar.Attributes;
 
-import org.projectrails.commands.CmdRails;
-import org.projectrails.commands.CmdSpawnMob;
 import org.projectrails.commands.CmdAfk;
 import org.projectrails.commands.CmdClearlag;
 import org.projectrails.commands.CmdLag;
-
+import org.projectrails.commands.CmdRails;
+import org.projectrails.commands.CmdSpawnMob;
 import org.projectrails.warps.CmdDelwarp;
 import org.projectrails.warps.CmdSetwarp;
 import org.projectrails.warps.CmdWarp;
 import org.projectrails.warps.WarpConfiguration;
-
-import org.projectrainbow.ServerWrapper;
 import org.projectrainbow._DiwUtils;
 
+import PluginReference.RainbowUtils;
 import net.md_5.bungee.config.Configuration;
 
 public class Rails {
@@ -24,11 +22,12 @@ public class Rails {
     private static boolean useWarpsV2 = false;
     public static boolean displaynameafk = true;
     public static boolean broadcastclearlag = true;
-
-    /**
-     * ProjectRails startup. Runs in {@link _DiwUtils#Startup()}
-     */
+    
     public static void run() {
+        run(false);
+    }
+
+    public static void run(boolean registerCommands) {
         Attributes a = Rail_Updater.getManifest(Rail_Updater.class).getMainAttributes();
         String hash = a.getValue("GitCommitHash");
         if (hash.endsWith("-dirty")) {
@@ -57,8 +56,13 @@ public class Rails {
 
         // commands.
         displaynameafk = config.getConfig().getBoolean("commands.afk.useDisplayNames");
-        if (config.getConfig().getBoolean("commands.afk.enable")) registerCommand(new CmdAfk());
+        broadcastclearlag = config.getConfig().getBoolean("commands.clearlag.broadcast");
 
+        if (registerCommands) registerCommands();
+    }
+    
+    public static void registerCommands() {
+        if (config.getConfig().getBoolean("commands.afk.enable")) registerCommand(new CmdAfk());
         if (config.getConfig().getBoolean("commands.laginfo.enable")) registerCommand(new CmdLag());
         if (config.getConfig().getBoolean("commands.clearlag.enable")) registerCommand(new CmdClearlag());
         broadcastclearlag = config.getConfig().getBoolean("commands.clearlag.broadcast");
@@ -84,7 +88,7 @@ public class Rails {
     }
 
     private static void registerCommand(PluginReference.MC_Command cmd) {
-        ServerWrapper.getInstance().registerCommand(cmd);
+        RainbowUtils.getServer().registerCommand(cmd);
     }
 
     public static boolean useVersion2Warps() {

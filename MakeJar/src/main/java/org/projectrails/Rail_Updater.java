@@ -19,6 +19,11 @@ import com.google.gson.JsonParser;
  */
 public class Rail_Updater {
     private static final String BRANCH = "master";
+    private static String repo = "ProjectRails";
+    
+    public static void setRepoName(String name) {
+        repo = name;
+    }
 
     public static int check() {
         Attributes a = getManifest(Rail_Updater.class).getMainAttributes();
@@ -27,7 +32,7 @@ public class Rail_Updater {
 
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL(
-                    "https://api.github.com/repos/Project-Rails/ProjectRails/compare/" + BRANCH + "..." + hash).openConnection();
+                    "https://api.github.com/repos/Project-Rails/" + repo + "/compare/" + BRANCH + "..." + hash).openConnection();
             connection.connect();
 
             if (connection.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND) return -2; // Unknown commit
