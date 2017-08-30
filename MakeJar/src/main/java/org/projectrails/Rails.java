@@ -22,9 +22,13 @@ public class Rails {
     private static boolean useWarpsV2 = false;
     public static boolean displaynameafk = true;
     public static boolean broadcastclearlag = true;
-    
+
+    public static String getMinecraftVersion() {
+        return "1.12.1";
+    }
+
     public static void run() {
-        run(false);
+        run(true);
     }
 
     public static void run(boolean registerCommands) {
