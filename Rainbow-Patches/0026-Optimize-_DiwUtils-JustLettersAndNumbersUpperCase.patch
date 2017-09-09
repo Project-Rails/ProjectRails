@@ -1,0 +1,49 @@
+From 45a1696366961455d2757bedee55880296d50b31 Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Sat, 9 Sep 2017 17:40:38 -0400
+Subject: [PATCH] Optimize _DiwUtils#JustLettersAndNumbersUpperCase
+
+---
+ .../main/java/org/projectrainbow/_DiwUtils.java    | 26 +---------------------
+ 1 file changed, 1 insertion(+), 25 deletions(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java b/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
+index 0224fd5..366b8a7 100644
+--- a/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
++++ b/rainbow/src/main/java/org/projectrainbow/_DiwUtils.java
+@@ -2050,31 +2050,7 @@ public class _DiwUtils {
+     }
+ 
+     public static String JustLettersAndNumbersUpperCase(String x) {
+-        StringBuilder sb = new StringBuilder();
+-        String msg = _ColorHelper.stripColor(x).toUpperCase();
+-        boolean removeNext = false;
+-
+-        for (int i = 0; i < msg.length(); ++i) {
+-            char ch = msg.charAt(i);
+-
+-            if (removeNext) {
+-                removeNext = false;
+-                if (ch >= 48 && ch <= 57 || ch >= 65 && ch <= 70 || ch == 76
+-                        || ch == 77 || ch == 78 || ch == 75 || ch == 82) {
+-                    continue;
+-                }
+-            }
+-
+-            if (ch >= 65 && ch <= 90) {
+-                sb.append(ch);
+-            } else if (ch == 36) {
+-                sb.append("S");
+-            } else if (ch == 38) {
+-                removeNext = true;
+-            }
+-        }
+-
+-        return sb.toString();
++        return x.toUpperCase().replaceAll("$", "S").replaceAll("[^a-zA-Z]", "");
+     }
+ 
+     public static String GetTimeStringFromLong(long ms) {
+-- 
+2.13.0.windows.1
+
