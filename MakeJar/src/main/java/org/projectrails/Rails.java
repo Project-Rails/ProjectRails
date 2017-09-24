@@ -18,13 +18,13 @@ import net.md_5.bungee.config.Configuration;
 
 public class Rails {
     private static RailConfig config = new RailConfig("projectrails.yml");
-    private static int upstream = 175; // Change when updating upstream.
+    private static int upstream = 176; // Change when updating upstream.
     private static boolean useWarpsV2 = false;
     public static boolean displaynameafk = true;
     public static boolean broadcastclearlag = true;
 
     public static String getMinecraftVersion() {
-        return "1.12.1";
+        return "1.12.2";
     }
 
     public static void run() {
