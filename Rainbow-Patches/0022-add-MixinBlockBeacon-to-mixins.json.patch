@@ -1,0 +1,45 @@
+From c734319f7af7e356a3b9fa4c8b47659d2e541223 Mon Sep 17 00:00:00 2001
+From: IsaiahPatton <isaiahpatton1@gmail.com>
+Date: Fri, 6 Oct 2017 21:51:50 -0400
+Subject: [PATCH] add MixinBlockBeacon to mixins.json
+
+---
+ rainbow/src/main/java/org/projectrainbow/mixins/MixinBlockBeacon.java | 4 +++-
+ rainbow/src/main/resources/mixins.json                                | 3 ++-
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/rainbow/src/main/java/org/projectrainbow/mixins/MixinBlockBeacon.java b/rainbow/src/main/java/org/projectrainbow/mixins/MixinBlockBeacon.java
+index 70bc752..145263c 100644
+--- a/rainbow/src/main/java/org/projectrainbow/mixins/MixinBlockBeacon.java
++++ b/rainbow/src/main/java/org/projectrainbow/mixins/MixinBlockBeacon.java
+@@ -1,3 +1,4 @@
++// Project-Rails start
+ package org.projectrainbow.mixins;
+ 
+ import net.minecraft.block.BlockBeacon;
+@@ -32,4 +33,5 @@ public class MixinBlockBeacon {
+             }
+         }
+     }
+-}
+\ No newline at end of file
++}
++// Project Rails end
+\ No newline at end of file
+diff --git a/rainbow/src/main/resources/mixins.json b/rainbow/src/main/resources/mixins.json
+index a820034..01d97c1 100644
+--- a/rainbow/src/main/resources/mixins.json
++++ b/rainbow/src/main/resources/mixins.json
+@@ -81,6 +81,7 @@
+     "MixinSPacketPlayerListHeaderFooter",
+     "MixinCPacketHandshake",
+     "MixinCommandMessage",
+-    "MixinContainerHopper"
++    "MixinContainerHopper",
++    "MixinBlockBeacon"
+   ]
+ }
+\ No newline at end of file
+-- 
+2.13.0.windows.1
+
