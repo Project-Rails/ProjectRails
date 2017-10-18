@@ -22,11 +22,9 @@ public class CmdRails extends RailCommand {
             int i = Rail_Updater.check();
             if (i == 0) {
                 sendMessage(p, "You are running the latest version.");
-                return;
-            } else {
-                sendMessage(p, "You are running " + i + " versions behind.");
-                return;
-            }
+            } else sendMessage(p, "You are running " + i + " versions behind.");
+
+            return;
         }
 
         if (args[0].equalsIgnoreCase("upstream")) {
@@ -34,11 +32,9 @@ public class CmdRails extends RailCommand {
             int i = Rail_Updater.rainbowCheck();
             if (i == 0) {
                 sendMessage(p, "Running the latest upstream build.");
-                return;
-            } else {
-                sendMessage(p, "Running " + i + " builds behind the latest upstream build.");
-                return;
-            }
+            } else sendMessage(p, "Running " + i + " builds behind the latest upstream build.");
+
+            return;
         }
 
         if (args[0].equalsIgnoreCase("info")) {

@@ -16,11 +16,7 @@ public class CmdAfk extends RailCommand {
     @Override
     public void handleCommand(MC_Player plr, String[] args) {
         if (plr != null) {
-            if (isAFK(plr)) {
-                setAFK(plr, false);
-            } else {
-                setAFK(plr, true);
-            }
+            setAFK(plr, !isAFK(plr));
         } else sendMessage(plr, "You're not a player.");
     }
 

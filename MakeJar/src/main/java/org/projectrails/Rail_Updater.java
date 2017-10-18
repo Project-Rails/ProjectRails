@@ -20,7 +20,7 @@ import com.google.gson.JsonParser;
 public class Rail_Updater {
     private static final String BRANCH = "master";
     private static String repo = "ProjectRails";
-    
+
     public static void setRepoName(String name) {
         repo = name;
     }

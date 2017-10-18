@@ -22,6 +22,7 @@ public class Rails {
     private static boolean useWarpsV2 = false;
     public static boolean displaynameafk = true;
     public static boolean broadcastclearlag = true;
+    public static int mobSpawnLimit = 50;
 
     public static String getMinecraftVersion() {
         return "1.12.2";
@@ -34,10 +35,7 @@ public class Rails {
     public static void run(boolean registerCommands) {
         Attributes a = Rail_Updater.getManifest(Rail_Updater.class).getMainAttributes();
         String hash = a.getValue("GitCommitHash");
-        if (hash.endsWith("-dirty")) {
-            System.out.println("ProjectRails DEBUG: This build is custom built!");
-            hash = hash.replace("-dirty", "");
-        }
+        if (hash.endsWith("-dirty")) hash = hash.replace("-dirty", "");
 
         _DiwUtils.version = "git-ProjectRails-" + hash;
         _DiwUtils.upstream_version = String.valueOf(upstream);
@@ -54,6 +52,7 @@ public class Rails {
         config.addDefault("commands.clearlag.enable", true);
         config.addDefault("commands.clearlag.broadcast", true);
         config.addDefault("commands.spawnmob.enable", true);
+        config.addDefault("commands.spawnmob.limit", 50);
         config.addDefault("files.use-new-warps-config", true);
         config.saveConfig();
         config.reloadConfig();
@@ -61,6 +60,7 @@ public class Rails {
         // commands.
         displaynameafk = config.getConfig().getBoolean("commands.afk.useDisplayNames");
         broadcastclearlag = config.getConfig().getBoolean("commands.clearlag.broadcast");
+        mobSpawnLimit = config.getConfig().getInt("commands.spawnmob.limit");
 
         if (registerCommands) registerCommands();
     }

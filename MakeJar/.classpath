@@ -3,6 +3,6 @@
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Users/isaia/Desktop/Folders/server/Rails-1.12.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/isaia/.m2/repository/org/projectrainbow/minecraft-server/1.12.1/minecraft-server-1.12.1.jar"/>
+	<classpathentry kind="lib" path="F:/mavenrepo/repository/org/projectrainbow/minecraft-server/1.12.1/minecraft-server-1.12.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
