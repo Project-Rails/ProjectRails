@@ -1,8 +1,10 @@
 ![Rails](https://cdn.discordapp.com/attachments/280480189945872385/315651907156705280/logo.png)
 =======
-[![Build status](https://ci.appveyor.com/api/projects/status/kyyec15kp2qj8wu9/branch/master?svg=true)](https://ci.appveyor.com/project/IsaiahPatton/projectrails-mirror/branch/master) ![Minecraft](https://img.shields.io/badge/Minecraft-1.12-green.svg) ![Discord](https://img.shields.io/badge/Discord-https%3A%2F%2Fdiscord.gg%2FrPmgVN6-blue.svg)
+[![Build status](https://ci.appveyor.com/api/projects/status/kyyec15kp2qj8wu9/branch/master?svg=true)](https://ci.appveyor.com/project/IsaiahPatton/projectrails-mirror/branch/master) ![Minecraft](https://img.shields.io/badge/Minecraft-1.12.2-green.svg) ![Discord](https://img.shields.io/badge/Discord-https%3A%2F%2Fdiscord.gg%2FrPmgVN6-blue.svg)
 
 Rails is a Minecraft server mod, updated from [Rainbow](https://project-rainbow.org).
+
+<i><b>Note:</b> ProjectRails.org is currently down. Please use <https://project-rails.github.io/DownloadHub/> to download ProjectRails</i>
 
 Builds: <https://projectrails.org/releases>
 
